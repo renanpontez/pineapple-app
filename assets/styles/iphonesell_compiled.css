@@ -77,14 +77,17 @@ nav img {
   height: 40px;
   padding: 10px; }
 
+#wrapper {
+  margin-top: 30px; }
+
 #MainSection {
   padding: 58px 16px; }
-  #MainSection .card .card-text .price {
+  #MainSection .card .price {
     font-size: 22px;
     margin-top: 10px;
     display: block;
     color: #2196f3; }
-    #MainSection .card .card-text .price span {
+    #MainSection .card .price span {
       font-size: 12px; }
 
 .admin-area-btn {
@@ -117,6 +120,12 @@ nav img {
   .floating-button.higher {
     bottom: 100px !important; }
 
+#GoodThings {
+  margin-top: -40px; }
+
+#AddProduct {
+  margin-top: 30px; }
+
 .img-responsive {
   max-width: 100%;
   height: auto;
@@ -127,5 +136,30 @@ nav img {
 
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:focus, .dropdown .dropdown-menu .dropdown-item:hover {
   color: black !important; }
+
+header {
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  background: -moz-linear-gradient(left, #e7c138 0%, #efcb4b 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #e7c138), color-stop(100%, #efcb4b));
+  background: -webkit-linear-gradient(left, #e7c138 0%, #efcb4b 100%);
+  background: -o-linear-gradient(left, #e7c138 0%, #efcb4b 100%);
+  background: -ms-linear-gradient(left, #e7c138 0%, #efcb4b 100%);
+  background: linear-gradient(to right, #e7c138 0%, #efcb4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7c138', endColorstr='#efcb4b', GradientType=1 ); }
+  header .navbar {
+    background-color: transparent; }
+  header .main-banner {
+    height: 100%; }
+    header .main-banner img {
+      height: 100%;
+      width: auto; }
+
+body {
+  background-color: #f5f5f5 !important; }
+
+.card {
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=iphonesell_compiled.css.map */

@@ -6,9 +6,9 @@
  */
 
 module.exports = {
+    schema: true,
 
     attributes: {
-        schema: true,
 
         color: {
             type: 'string',
@@ -26,8 +26,12 @@ module.exports = {
             type: 'string',
             required: false
         },
-        Product_type: {
-            model: 'Product_type'
+        photo: {
+            type: 'string',
+            required: false
+        },
+        ProductType: {
+            model: 'ProductType'
         }
     },
 };

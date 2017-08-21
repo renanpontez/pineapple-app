@@ -6,9 +6,9 @@
  */
 
 module.exports = {
+    schema: true,
 
     attributes: {
-        schema: true,
 
         name: {
             type: 'string',
@@ -17,6 +17,10 @@ module.exports = {
         version: {
             type: 'string',
             required: true
+        },
+        products: {
+            collection: 'Product',
+            via: 'ProductType'
         }
-    },
+    }
 };

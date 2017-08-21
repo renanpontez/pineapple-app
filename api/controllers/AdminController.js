@@ -7,6 +7,13 @@
 
 module.exports = {
     index: function(req, res) {
-		res.view({layout: 'layout_admin.ejs'});
+        Product.find().populate('ProductType').exec(function(err, result){
+            if(err) return next(err);
+
+            res.view({
+                products: result,
+                layout: 'layout_admin.ejs'
+            });
+        });
 	},
 };

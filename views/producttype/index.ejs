@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a href="/producttype/add" class="btn btn-primary">
+                Cadastrar Tipo de Produto
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Versão
+                </th>
+                <th>
+                    Criado em:
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% _.each(productTypes, function(type) { %>
+                <tr>
+                    <td><%= type.name %></td>
+                    <td><%= type.version %></td>
+                    <td><%= type.createdAt.toLocaleString('pt-BR') %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

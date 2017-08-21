@@ -26,7 +26,7 @@ module.exports.policies = {
         '*': 'sessionAuth'
 
     },
-    Product_type: {
+    Producttype: {
         '*': 'sessionAuth'
     },
     Users: {

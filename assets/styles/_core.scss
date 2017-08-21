@@ -4,22 +4,27 @@ nav {
         padding: 10px;
     }
 }
+#wrapper {
+    margin-top:30px;
+}
+
 #MainSection {
     padding: 58px 16px;
 
 
     .card {
-        .card-text {
-            .price {
-                font-size: 22px;
-                margin-top: 10px;
-                display: block;
-                color: #2196f3;
+        .price {
+            font-size: 22px;
+            margin-top: 10px;
+            display: block;
+            color: #2196f3;
 
-                span {
-                    font-size: 12px;
-                }
+            span {
+                font-size: 12px;
             }
+        }
+        .card-text {
+
         }
     }
 }
@@ -68,4 +73,11 @@ nav {
     &.higher {
         bottom: 100px !important
     }
+}
+
+#GoodThings {
+    margin-top:-40px;
+}
+#AddProduct {
+    margin-top:30px;
 }

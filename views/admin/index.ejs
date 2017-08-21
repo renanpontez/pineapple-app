@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+
+        <% _.each(products, function(product) { %>
+            <div class="col-md-3">
+                <div class="each-result">
+                    <!--Card-->
+                    <div class="card">
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <%if (product.photo == null) { %>
+                                <img src="/uploads/nophoto.png" class="img-fluid" alt="">
+                            <% }else{ %>
+                                <img src="/uploads/<%= product.photo %>" class="img-fluid" alt="">
+                            <% } %>
+                            <a href="#">
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title">
+                                <%= product.ProductType.name %> |
+                                <%= product.ProductType.version %>
+                            </h4>
+                            <!--Text-->
+                            <p class="card-text">
+                                <%= product.description %> <br>
+                                <%= product.color %> <br>
+                                <%= product.state %> <br>
+
+
+                                <span class="price">
+                                    <span>R$</span>
+                                    <%= product.price %>
+                                </span>
+                            </p>
+
+                            <div class="card-actions">
+                                <a href="/product/edit/<%= product.id %>" class="btn btn-warning btn-glass">ALTERAR</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
