@@ -1,0 +1,71 @@
+nav {
+    img {
+        height:40px;
+        padding: 10px;
+    }
+}
+#MainSection {
+    padding: 58px 16px;
+
+
+    .card {
+        .card-text {
+            .price {
+                font-size: 22px;
+                margin-top: 10px;
+                display: block;
+                color: #2196f3;
+
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.admin-area-btn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: $blue;
+
+}
+
+#LoginArea {
+    margin-top:100px;
+
+    .login-logo {
+        padding:15px 30px;
+    }
+}
+
+.floating-button {
+    display: block;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background-color: $blue;
+    border-radius: 50%;
+    color: white;
+    a {
+        display: block;
+        padding: 18px 22px 7px 22px;
+        color: white;
+
+        i {
+            font-size:23px;
+        }
+
+        &:hover {
+            color: white;
+        }
+
+    }
+
+    &.higher {
+        bottom: 100px !important
+    }
+}

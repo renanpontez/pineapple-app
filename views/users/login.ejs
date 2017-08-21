@@ -1,0 +1,47 @@
+<div id="LoginArea">
+    <div class="row justify-content-md-center">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                            <!-- Login form -->
+                    <form action="/session/create" method="post">
+
+                        <div class="errors">
+        					<% if(flash && flash.err) { %>
+        						<ul class="alert alert-success">
+        							<% Object.keys(flash.err).forEach(function(error) { %>
+        								<li><%= JSON.stringify(flash.err[error].message) %></li>
+        							<% }) %>
+        						</ul>
+        					<% } %>
+        				</div>
+
+                        <p class="h5 text-center mb-4">
+                            <img src="../img/logo-yellowbg.png" alt="" class="img-responsive login-logo">
+                        </p>
+
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="text" id="defaultForm-email" class="form-control" name="email">
+                            <label for="defaultForm-email">E-mail</label>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input type="password" id="defaultForm-pass" class="form-control" name="password">
+                            <label for="defaultForm-pass">Senha</label>
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-full-width">Login</button>
+                        </div>
+                    </form>
+                    <!-- Login form -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
