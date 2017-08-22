@@ -13,7 +13,7 @@ module.exports = {
 
 			res.view({
 				productTypes: result,
-				layout: 'layout_admin.ejs'
+				layout: 'layout_null.ejs'
 			});
 		});
 	},

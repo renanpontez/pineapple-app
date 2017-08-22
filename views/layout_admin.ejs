@@ -6,7 +6,6 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
     <!--
         Stylesheets and Preprocessors
         ==============================
@@ -29,6 +28,7 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/fileinput.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/iphonesell_compiled.css">
     <link rel="stylesheet" href="/materialdesign/css/bootstrap.css">
@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/materialdesign/js/jquery-3.1.1.min.js"></script>
   </head>
 
   <body>
@@ -47,7 +50,7 @@
       <nav class="navbar navbar-expand-lg navbar-light blue-grey lighten-5">
 
           <!-- Navbar brand -->
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/admin">
               <img src="../img/logo.png" alt="">
           </a>
 
@@ -92,10 +95,11 @@
 
       </nav>
       <section id="wrapper">
-
           <%- body %>
       </section>
-
+      <!-- Modal -->
+      <div class="modal fade" id="actionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
 
 
     <!--
@@ -149,6 +153,7 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/fileinput.min.js"></script>
     <script src="/materialdesign/js/jquery-3.1.1.min.js"></script>
     <script src="/materialdesign/js/popper.min.js"></script>
     <script src="/materialdesign/js/bootstrap.js"></script>

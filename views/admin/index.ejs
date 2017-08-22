@@ -1,54 +1,71 @@
 <div class="container">
     <div class="row">
-
-        <% _.each(products, function(product) { %>
-            <div class="col-md-3">
-                <div class="each-result">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <%if (product.photo == null) { %>
-                                <img src="/uploads/nophoto.png" class="img-fluid" alt="">
-                            <% }else{ %>
-                                <img src="/uploads/<%= product.photo %>" class="img-fluid" alt="">
-                            <% } %>
-                            <a href="#">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">
-                                <%= product.ProductType.name %> |
-                                <%= product.ProductType.version %>
-                            </h4>
-                            <!--Text-->
-                            <p class="card-text">
-                                <%= product.description %> <br>
-                                <%= product.color %> <br>
-                                <%= product.state %> <br>
-
-
-                                <span class="price">
-                                    <span>R$</span>
-                                    <%= product.price %>
-                                </span>
-                            </p>
-
-                            <div class="card-actions">
-                                <a href="/product/edit/<%= product.id %>" class="btn btn-warning btn-glass">ALTERAR</a>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-            </div>
-        <% }) %>
+        <div class="col-md-12 text-right">
+            <a href="#" class="btn btn-primary add-product-btn">
+                Cadastrar Produto
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
     </div>
+    <br>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    Produto
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Cor
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Preço
+                </th>
+                <th>
+                    Imagem
+                </th>
+                <th></th>
+            </tr>
+            <% _.each(products, function(product) { %>
+                <% if (product.photo == null) { imgUrl = 'nophoto.png' }else{ imgUrl = product.photo } %>
 
+
+
+                <tr>
+                    <td><%= product.ProductType.name %> | <%= product.ProductType.version %></td>
+                    <td><%= product.description %></td>
+                    <td><%= product.color %></td>
+                    <td><%= product.state %></td>
+                    <td>R$ <%= product.price %></td>
+                    <td>
+                        <a href="/uploads/<%= imgUrl %>" target="_blank">
+                            <i class="fa fa-photo"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/product/edit/<%= product.id %>">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
 </div>
+
+<script type="text/javascript">
+
+    $('document').ready(function() {
+        $('.add-product-btn').on('click', function() {
+            $.get("/product/add", function( data ) {
+                $( "#actionModal" ).html( data ).modal();
+            });
+        });
+    });
+
+</script>
