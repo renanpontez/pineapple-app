@@ -46,7 +46,7 @@ module.exports.connections = {
     port: '3308',
     user: 'root', //optional
     password: '', //optional
-    database: 'IphoneSellDB' //optional
+    database: 'PineappleDB' //optional
   },
 
   /***************************************************************************
