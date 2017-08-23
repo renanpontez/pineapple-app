@@ -23,8 +23,8 @@ module.exports.policies = {
     '*': 'flash',
 
     Product: {
-        '*': 'sessionAuth'
-
+        '*': 'sessionAuth',
+        'details': 'flash'
     },
     Producttype: {
         '*': 'sessionAuth'

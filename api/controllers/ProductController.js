@@ -27,8 +27,6 @@ module.exports = {
 		},function (err, uploadedFiles) {
 
 			filePath = uploadedFiles[0].fd.split('uploads\\')[1];
-			sails.log(uploadedFiles);
-			sails.log(filePath);
 			allParams.photo = filePath;
 
 			Product.create( allParams, function typeCreated (err, type) {
@@ -40,18 +38,35 @@ module.exports = {
 	},
 	//GET
 	edit: function(req, res) {
-		Product.findOne(req.param('id'), function foundUser ( err, product) {
-			if (err) return next(err);
-			if (!product) return next();
 
-			res.view({
-				product:product,
-				layout: 'layout_admin.ejs'
-			});
+		ProductType.find()
+			.exec(function foundResult(err, types){
+				if(err) return next(err);
+
+				Product.findOne(req.param('id'))
+					.populate('ProductType')
+					.exec(function ( err, product) {
+						if (err) return next(err);
+
+						res.view({
+							product: product,
+							productTypes: types,
+							layout: 'layout_admin'
+						});
+				});
 		});
 	},
 	//POST
 	update: function(req, res, next) {
-		res.view({layout: 'layout_admin.ejs'});
+		Product.update(req.param('id'), req.params.all(), function productUpdated (err) {
+			if (err) {
+				return res.json({
+					err: err,
+					status: false
+				});
+			}
+
+			res.redirect('/admin/?u=1');
+		});
 	},
 };

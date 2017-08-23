@@ -1,0 +1,71 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Alterar produto</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+        <form id="ProductEditForm" action="/product/update" method="post" enctype="multipart/form-data">
+            <div class="form-group md-form">
+                <input class="form-control" type="text" name="description"  id="DescriptionField" value="<%= product.description %>">
+                <label for="DescriptionField">Descrição</label>
+            </div>
+            <div class="form-group md-form">
+                <input class="form-control" type="text" name="price" value="<%= product.price %>" id="PriceField">
+                <label for="PriceField">Preço</label>
+            </div>
+            <div class="form-group md-form">
+                <input class="form-control" type="text" name="color" value="<%= product.color %>" id="ColorField">
+                <label for="ColorField">Cor</label>
+            </div>
+
+            <div class="form-group md-form">
+                <select class="form-control" type="text" name="state" value="<%= product.state %>" id="StateField">
+                    <option value="new">Novo</option>
+                    <option value="used">Usado</option>
+                </select>
+            </div>
+
+
+            <div class="form-group md-form">
+                <select class="form-control" type="text" name="ProductType">
+                    <% _.each(productTypes, function(type) { %>
+                        <% if (product.ProductType.id == type.id) { %>
+                            <option selected="selected" value="<%= type.id %>"><%= type.name %> <%= type.version %></option>
+                         <% } else { %>
+                             <option  value="<%= type.id %>"><%= type.name %> <%= type.version %></option>
+                         <% } %>
+
+                    <% }) %>
+                </select>
+            </div>
+
+            <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+            <div class="form-group md-form">
+                <input class="form-control" type="file" name="photo" value="" id="PhotoField">
+                <label for="PhotoField">Foto</label>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+      <a onclick="$('#ProductEditForm').submit()" class="btn btn-primary btn-full-width">Save changes</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $("#PhotoField").fileinput({
+		language: "pt-BR",
+		showCaption: true,
+		showPreview: false,
+		showRemove: false,
+		showUpload: false,
+		allowedFileExtensions: ["jpg", "jpeg", "png", "gif"],
+		browseClass: 'btn btn-primary btn-sm',
+	});
+</script>

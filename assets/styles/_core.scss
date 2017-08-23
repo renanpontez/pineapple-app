@@ -1,3 +1,85 @@
+header {
+    height: 400px;
+    width: 100%;
+    text-align:center;
+    background-image: url('../../img/iphone.jpeg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    .main-text {
+        h1 {
+            color: white;
+            font-weight: 700;
+            letter-spacing: .2px;
+            text-shadow: 2px 2px 2px #353535;
+            font-size: 50px;
+            padding-top:36px;
+        }
+    }
+    .logo {
+        width: 150px;
+        float: left;
+        padding:12px;
+
+        img {
+            padding:7px 13px;
+            width:100%;
+            border: 1px solid white;
+        }
+    }
+    nav {
+        float: right;
+        padding:15px;
+
+        ul {
+            li {
+                display: inline;
+                a {
+                    padding:10px 15px;
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    letter-spacing: .7px;
+                    font-weight: 300;
+                    transition: all 300ms ease-out;
+                    border-bottom: 0;
+
+                    &:hover, &.active {
+                        transition: all 300ms ease-out;
+                        border-bottom: 1px solid $grey500;
+                        color: white;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+    .navbar {
+        background-color: transparent;
+    }
+
+    .menu-filter {
+        width:100%;
+        height:60px;
+        position: absolute;
+        bottom: -30px;
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.93);
+            color: #5d5d5d;
+            font-size: 17px;
+            border-radius: 0;
+            transition: all 300ms ease-out;
+
+            &:hover {
+                transition: all 300ms ease-out;
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}
+
 nav {
     img {
         height:40px;
@@ -9,22 +91,15 @@ nav {
 }
 
 #MainSection {
-    padding: 58px 16px;
+    padding: 72px 16px;
 
+    .each-result {
+        cursor: pointer;
+        transition: all 300ms ease-out;
 
-    .card {
-        .price {
-            font-size: 22px;
-            margin-top: 10px;
-            display: block;
-            color: #2196f3;
-
-            span {
-                font-size: 12px;
-            }
-        }
-        .card-text {
-
+        &:hover {
+            transition: all 300ms ease-out;
+            transform: scale(1.01);
         }
     }
 }
@@ -34,9 +109,9 @@ nav {
 .admin-area-btn {
     position: absolute;
     left: 10px;
-    bottom: 10px;
-    color: $blue;
-
+    top: 10px;
+    color: white;
+    padding: 10px;
 }
 
 #LoginArea {

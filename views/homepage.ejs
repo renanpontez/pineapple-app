@@ -3,97 +3,62 @@
     <div class="container">
         <div class="" id="Results">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="each-result">
-                        <!--Card-->
-                        <div class="card">
+                <% _.each(products, function(product) { %>
+                    <% if (product.photo == null) { imgUrl = 'nophoto.png' }else{ imgUrl = product.photo } %>
+                    <div class="col-md-3">
+                        <div class="each-result" product-id="<%= product.id %>">
+                            <!--Card-->
+                            <div class="card">
+                                <!--Card image-->
+                                <div class="view overlay hm-white-slight bg-image" data-img="/uploads/<%= imgUrl %>">
+                                    <a href="#">
+                                        <div class="mask"></div>
+                                    </a>
+                                    <div class="floating-card-button">
+                                        <a href="#">
+                                            <i class="fa fa-caret-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
 
-                            <!--Card image-->
-                            <div class="view overlay hm-white-slight">
-                                <img src="https://www.o2.co.uk/shop/homepage/images/shop15/brand/apple/iphone-7-plus/apple-iphone-7-plus-gallery-img-6.jpg" class="img-fluid" alt="">
-                                <a href="#">
-                                    <div class="mask"></div>
-                                </a>
-                            </div>
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title"><%= product.ProductType.name %> | <%= product.ProductType.version %></h4>
+                                    <!--Text-->
+                                    <p class="card-text">
+                                        <span class="price">
+                                            R$ <%= product.price %>
+                                        </span>
+                                    </p>
 
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title">iPhone 6</h4>
-                                <!--Text-->
-                                <p class="card-text">
-                                    iPhone em ótima qualidade sem nenhum arranhão e sem problemas.
+                                    <!-- <div class="card-actions">
+                                        <a href="/product/details/<%= product.id %>" class="btn btn-primary btn-glass">Detalhes</a>
+                                    </div> -->
 
-                                    <span class="price">
-                                        <span>R$</span>
-                                        1.600,00
-                                    </span>
-                                </p>
-
-                                <div class="card-actions">
-                                    <a href="#" class="btn btn-primary btn-glass">Detalhes</a>
                                 </div>
 
                             </div>
-
+                            <!--/.Card-->
                         </div>
-                        <!--/.Card-->
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="each-result">
-                        <!--Card-->
-                        <div class="card">
-                            <!--Card image-->
-                            <div class="view overlay hm-white-slight">
-                                <img src="https://www.o2.co.uk/shop/homepage/images/shop15/brand/apple/iphone-7-plus/apple-iphone-7-plus-gallery-img-6.jpg" class="img-fluid" alt="">
-                                <a href="#">
-                                    <div class="mask"></div>
-                                </a>
-                            </div>
 
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title">iPhone 5</h4>
-                                <!--Text-->
-                                <p class="card-text">
-                                    iPhone em ótima qualidade sem nenhum arranhão e sem problemas.
+                <% }) %>
 
-                                    <span class="price">
-                                        <span>R$</span>
-                                        1.600,00
-                                    </span>
-                                </p>
 
-                                <div class="card-actions">
-                                    <a href="#" class="btn btn-primary">Detalhes</a>
-                                </div>
 
-                            </div>
 
-                        </div>
-                        <!--/.Card-->
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="each-result">
-123
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="each-result">
-dasd
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="each-result">
-
-                    </div>
-                </div>
             </div>
         </div>
 
     </div>
 
 </section>
+
+<script type="text/javascript">
+    $('document').ready(function() {
+        $('.bg-image').each(function(id, data) {
+            console.log(data);
+        });
+    });
+</script>
