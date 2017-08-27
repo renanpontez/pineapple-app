@@ -10,10 +10,14 @@ module.exports = {
 	add: function(req, res, next) {
 		ProductType.find(function foundResult(err, result){
 			if(err) return next(err);
+			if(result.length == 0){
+				req.flash('error', 'Você precisa cadastrar um tipo de produto primeiro.');
+				return res.redirect('/admin');
+			}
 
 			res.view({
 				productTypes: result,
-				layout: 'layout_null.ejs'
+				layout: 'layout_admin.ejs'
 			});
 		});
 	},

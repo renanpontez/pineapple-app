@@ -17,8 +17,9 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css',
-  'materialdesign/css/*.css'
+    'floatingbutton/*.css',
+    'styles/**/*.css',
+    'materialdesign/css/*.css'
 ];
 
 
@@ -37,7 +38,9 @@ var jsFilesToInject = [
   'materialdesign/js/popper.min.js',
 
   'materialdesign/js/*.js',
-  
+
+  'floatingbutton/*.js',
+
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js',

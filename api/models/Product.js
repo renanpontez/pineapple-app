@@ -15,12 +15,16 @@ module.exports = {
             required: true
         },
         price: {
-            type: 'decimal',
+            type: 'string',
             required: true
         },
         state: {
             type: 'string',
             required: false
+        },
+        storage: {
+            type: 'string',
+            required: true
         },
         description: {
             type: 'string',

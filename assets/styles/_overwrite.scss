@@ -54,8 +54,8 @@ body {
     }
 
     .bg-image {
-        height: 260px;
-        background-size: auto 100%;
+        height: 230px;
+        background-size: cover;
         background-position: center
     }
 }
@@ -64,4 +64,32 @@ ul {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+}
+
+.mfb-component__button--main,
+.mfb-component__button--child  {
+
+    i {
+        line-height: 56px !important;
+
+        &:hover {
+            color:white;
+        }
+    }
+
+    &:hover:not(.mfb-component__button--main) {
+        background-color: $blue800;
+    }
+
+}
+.marign-0{
+    margin: 0 !important;
+}
+.input-group-addon {
+    background: white !important;
+    border: 0;
+    border-top: 0 !important;
+    border-left:0 !important;
+    border-right:0 !important;
+    border-bottom: 1px solid #bdbdbd!important;
 }

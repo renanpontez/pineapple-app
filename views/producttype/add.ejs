@@ -6,12 +6,10 @@
                     <p>Cadastrar Tipo de Produto</p>
 
                     <div class="errors">
-                        <% if(flash && flash.err) { %>
-                            <ul class="alert alert-success">
-                                <% Object.keys(flash.err).forEach(function(error) { %>
-                                    <li><%= JSON.stringify(flash.err[error].message) %></li>
-                                <% }) %>
-                            </ul>
+                        <% if (req.session.flash && req.session.flash.error) { %>
+                            <div class="alert alert-danger">
+                                <%=req.flash('error')%>
+                            </div>
                         <% } %>
                     </div>
 

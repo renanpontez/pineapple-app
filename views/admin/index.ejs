@@ -1,18 +1,31 @@
+
 <div class="container">
-    <div class="row">
+        <% if (req.session.flash && req.session.flash.error) { %>
+            <div class="alert alert-danger">
+                <%=req.flash('error')%>
+            </div>
+        <% } %>
+
+    <!-- <div class="row">
         <div class="col-md-12 text-right">
-            <a href="#" class="btn btn-primary add-product-btn">
+            <a href="/producttype/add" class="btn btn-elegant add-product-btn pull-left">
+                Cadastrar Tipo de Produto
+                <i class="fa fa-plus"></i>
+            </a>
+            <a href="/product/add" class="btn btn-primary add-product-btn">
                 Cadastrar Produto
                 <i class="fa fa-plus"></i>
             </a>
         </div>
-    </div>
+    </div> -->
     <br>
 
 
     <div class="row">
         <% if(products.length == 0){ %>
-            <p>Nenhum produto foi cadastrado.</p>
+            <div class="col-md-12">
+                <p>Nenhum produto foi cadastrado.</p>
+            </div>
         <% } else{ %>
         <table class="table">
             <tr>
@@ -61,24 +74,3 @@
         <% } %>
     </div>
 </div>
-
-<script type="text/javascript">
-
-    $('document').ready(function() {
-        $('.add-product-btn').on('click', function() {
-            $.get("/product/add", function( data ) {
-                $( "#actionModal" ).html( data ).modal();
-            });
-        });
-
-        $('.edit-product-btn').on('click', function() {
-            var productId = $(this).attr('product-id');
-
-            $.get(`/product/edit/${productId}`, function( data ) {
-                $( "#actionModal" ).html( data ).modal();
-            });
-        });
-
-    });
-
-</script>

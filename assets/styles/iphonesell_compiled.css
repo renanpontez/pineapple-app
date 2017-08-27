@@ -9,6 +9,10 @@
 .white-bg {
   background-color: #fff; }
 
+.green-bg {
+  background-color: #4CAF50;
+  color: #fff; }
+
 .blue-bg {
   background-color: #2196F3;
   color: #fff; }
@@ -185,6 +189,15 @@ nav img {
 #AddProduct {
   margin-top: 30px; }
 
+.page-title {
+  font-size: 19px;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+.pointer {
+  cursor: pointer !important; }
+
 .img-responsive {
   width: 100%;
   height: auto;
@@ -224,13 +237,34 @@ body {
       background-color: #2196f3;
       color: white; }
   .card .bg-image {
-    height: 260px;
-    background-size: auto 100%;
+    height: 230px;
+    background-size: cover;
     background-position: center; }
 
 ul {
   list-style: none;
   margin-left: 0;
   padding-left: 0; }
+
+.mfb-component__button--main i,
+.mfb-component__button--child i {
+  line-height: 56px !important; }
+  .mfb-component__button--main i:hover,
+  .mfb-component__button--child i:hover {
+    color: white; }
+.mfb-component__button--main:hover:not(.mfb-component__button--main),
+.mfb-component__button--child:hover:not(.mfb-component__button--main) {
+  background-color: #1565C0; }
+
+.marign-0 {
+  margin: 0 !important; }
+
+.input-group-addon {
+  background: white !important;
+  border: 0;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #bdbdbd !important; }
 
 /*# sourceMappingURL=iphonesell_compiled.css.map */

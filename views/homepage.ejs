@@ -14,15 +14,16 @@
                                     <a href="#">
                                         <div class="mask"></div>
                                     </a>
+
+                                </div>
+
+                                <!--Card content-->
+                                <div class="card-body">
                                     <div class="floating-card-button">
                                         <a href="#">
                                             <i class="fa fa-caret-right"></i>
                                         </a>
                                     </div>
-                                </div>
-
-                                <!--Card content-->
-                                <div class="card-body">
                                     <!--Title-->
                                     <h4 class="card-title"><%= product.ProductType.name %> | <%= product.ProductType.version %></h4>
                                     <!--Text-->
@@ -56,9 +57,5 @@
 </section>
 
 <script type="text/javascript">
-    $('document').ready(function() {
-        $('.bg-image').each(function(id, data) {
-            console.log(data);
-        });
-    });
+
 </script>
