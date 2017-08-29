@@ -4,29 +4,41 @@
             <h1 class="page-title">Tipos de Produtos</h1>
         </div>
     </div>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Nome
-                </th>
-                <th>
-                    Versão
-                </th>
-                <th>
-                    Criado em:
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% _.each(productTypes, function(type) { %>
+    <% if(productTypes.length == 0){ %>
+        <div class="col-md-12">
+            <p>Nenhum tipo de produto foi cadastrado.</p>
+        </div>
+    <% } else{ %>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><%= type.name %></td>
-                    <td><%= type.version %></td>
-                    <td><%= type.createdAt.toLocaleString('pt-BR') %></td>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Versão
+                    </th>
+                    <th>
+                        Criado em:
+                    </th>
+                    <th></th>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <% _.each(productTypes, function(type) { %>
+                    <tr>
+                        <td><%= type.name %></td>
+                        <td><%= type.version %></td>
+                        <td><%= type.createdAt.toLocaleString('pt-BR') %></td>
+                        <td>
+                            <a href="/producttype/edit/<%= type.id %>" class="edit-productype-btn">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }  %>
+
 </div>

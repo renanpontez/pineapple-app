@@ -3,7 +3,6 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <p>Cadastrar Tipo de Produto</p>
 
                     <div class="errors">
                         <% if (req.session.flash && req.session.flash.error) { %>
@@ -13,7 +12,7 @@
                         <% } %>
                     </div>
 
-                    <form class="" action="/producttype/create" method="post">
+                    <form class="form-type-new" action="/producttype/create" method="post">
                         <div class="form-group md-form">
                             <input class="form-control" type="text" name="name" value="" id="NameField">
                             <label for="NameField">Nome</label>

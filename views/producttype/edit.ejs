@@ -1,0 +1,46 @@
+<section class="container" id="AddProduct">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Atualizar tipo de produto</strong>
+                </div>
+                <div class="card-body">
+                    <form id="ProductEditForm" action="/producttype/update" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%= type.id %>">
+                        <div class="form-group md-form">
+                            <input class="form-control" type="text" name="name"  id="NameField" value="<%= type.name %>">
+                            <label for="NameField">Nome</label>
+                        </div>
+                        <div class="form-group md-form">
+                            <input class="form-control" type="text" name="version" value="<%= type.version %>" id="VersionField">
+                            <label for="VersionField">Versão</label>
+                        </div>
+
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
+                    </form>
+                    <form action="/producttype/delete" method="post" id="FormDeleteType">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+                        <input type="hidden" name="id" value="<%= type.id %>">
+                        <a class="btn btn-danger margin-0 pull-left delete-type">EXCLUIR</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $("#PhotoField").fileinput({
+		language: "pt-BR",
+		showCaption: true,
+		showPreview: false,
+		showRemove: false,
+		showUpload: false,
+		allowedFileExtensions: ["jpg", "jpeg", "png", "gif"],
+		browseClass: 'btn btn-primary btn-sm',
+	});
+</script>

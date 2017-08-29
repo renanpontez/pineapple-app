@@ -34,9 +34,12 @@ var jsFilesToInject = [
   'js/dependencies/**/*.js',
 
   'materialdesign/js/jquery-3.1.1.min.js',
+  'js/jquery.validate.min.js',
 
   'materialdesign/js/popper.min.js',
 
+  'notify/*.js',
+  
   'materialdesign/js/*.js',
 
   'floatingbutton/*.js',

@@ -3,7 +3,16 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <form id="ProductCreateForm" action="/product/create" method="post" enctype="multipart/form-data">
+
+                    <div class="errors">
+                        <% if (req.session.flash && req.session.flash.error) { %>
+                            <div class="alert alert-danger">
+                                <%=req.flash('error')%>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <form id="ProductCreateForm" action="/product/create" method="post" enctype="multipart/form-data" class="form-product-new">
                         <div class="form-group md-form">
                             <input class="form-control" type="text" name="description" value="" id="DescriptionField">
                             <label for="DescriptionField">Descrição</label>
@@ -42,7 +51,7 @@
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
 
                         <div class="form-group md-form">
-                            <input type="file" class="filestyle" data-btnClass="btn-primary" name="photo"  id="PhotoField">
+                            <input class="form-control" type="file"  name="photo" value="" id="PhotoFieldAdd">
                         </div>
 
 

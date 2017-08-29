@@ -198,6 +198,9 @@ nav img {
 .pointer {
   cursor: pointer !important; }
 
+.thumbnail-size {
+  width: 30px; }
+
 .img-responsive {
   width: 100%;
   height: auto;
@@ -266,5 +269,11 @@ ul {
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 1px solid #bdbdbd !important; }
+
+.form-group label.error {
+  font-size: 10px;
+  color: red;
+  left: auto;
+  right: 0; }
 
 /*# sourceMappingURL=iphonesell_compiled.css.map */

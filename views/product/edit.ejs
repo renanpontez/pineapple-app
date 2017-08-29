@@ -1,62 +1,77 @@
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Alterar produto</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+<section class="container" id="AddProduct">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Atualizar produto</strong>
+                </div>
+                <div class="card-body">
+                    <form id="ProductEditForm" action="/product/update" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%= product.id %>">
+                        <div class="form-group md-form">
+                            <input class="form-control" type="text" name="description"  id="DescriptionField" value="<%= product.description %>">
+                            <label for="DescriptionField">Descrição</label>
+                        </div>
+                        <div class="form-group md-form">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="ColorFieldAddon">R$</span>
+                                <input class="form-control" type="text" name="price" value="<%= product.price %>" id="PriceField">
+                                <label for="PriceField">Preço</label>
+                            </div>
+                        </div>
+                        <div class="form-group md-form">
+                            <input class="form-control" type="text" name="color" value="<%= product.color %>" id="ColorField">
+                            <label for="ColorField">Cor</label>
+                        </div>
+                        <div class="form-group md-form">
+                            <div class="input-group">
+                                <input class="form-control" type="number" step="16" min="16" value="16" name="storage" value="" id="StorageField">
+                                <label for="StorageField">Armazenamento</label>
+                                <span class="input-group-addon" id="ColorFieldAddon">GB</span>
+                            </div>
+                        </div>
+                        <div class="form-group md-form">
+                            <select class="form-control" type="text" name="state" value="<%= product.state %>" id="StateField">
+                                <% if (product.state == "new") { %>
+                                    <option value="new" selected="selected">Novo</option>
+                                    <option value="used">Usado</option>
+                                <% } else { %>
+                                    <option value="new" >Novo</option>
+                                    <option value="used" selected="selected">Usado</option>                                <% } %>
+                            </select>
+                        </div>
+                        <div class="form-group md-form">
+                            <select class="form-control" type="text" name="ProductType">
+                                <% _.each(productTypes, function(type) { %>
+                                    <% if (product.ProductType.id == type.id) { %>
+                                        <option selected="selected" value="<%= type.id %>"><%= type.name %> <%= type.version %></option>
+                                     <% } else { %>
+                                         <option  value="<%= type.id %>"><%= type.name %> <%= type.version %></option>
+                                     <% } %>
+
+                                <% }) %>
+                            </select>
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <div class="form-group md-form">
+                            <input class="form-control" type="file" name="photo" value="" id="PhotoFieldEdit">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
+                    </form>
+                    <form action="/product/delete" method="post" id="FormDelete">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+                        <input type="hidden" name="id" value="<%= product.id %>">
+                        <button class="btn btn-danger margin-0 pull-left">EXCLUIR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-
-        <form id="ProductEditForm" action="/product/update" method="post" enctype="multipart/form-data">
-            <div class="form-group md-form">
-                <input class="form-control" type="text" name="description"  id="DescriptionField" value="<%= product.description %>">
-                <label for="DescriptionField">Descrição</label>
-            </div>
-            <div class="form-group md-form">
-                <input class="form-control" type="text" name="price" value="<%= product.price %>" id="PriceField">
-                <label for="PriceField">Preço</label>
-            </div>
-            <div class="form-group md-form">
-                <input class="form-control" type="text" name="color" value="<%= product.color %>" id="ColorField">
-                <label for="ColorField">Cor</label>
-            </div>
-
-            <div class="form-group md-form">
-                <select class="form-control" type="text" name="state" value="<%= product.state %>" id="StateField">
-                    <option value="new">Novo</option>
-                    <option value="used">Usado</option>
-                </select>
-            </div>
-
-
-            <div class="form-group md-form">
-                <select class="form-control" type="text" name="ProductType">
-                    <% _.each(productTypes, function(type) { %>
-                        <% if (product.ProductType.id == type.id) { %>
-                            <option selected="selected" value="<%= type.id %>"><%= type.name %> <%= type.version %></option>
-                         <% } else { %>
-                             <option  value="<%= type.id %>"><%= type.name %> <%= type.version %></option>
-                         <% } %>
-
-                    <% }) %>
-                </select>
-            </div>
-
-            <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
-
-            <div class="form-group md-form">
-                <input class="form-control" type="file" name="photo" value="" id="PhotoField">
-                <label for="PhotoField">Foto</label>
-            </div>
-
-        </form>
-    </div>
-    <div class="modal-footer">
-      <a onclick="$('#ProductEditForm').submit()" class="btn btn-primary btn-full-width">Save changes</a>
-    </div>
-  </div>
-</div>
+</section>
 
 <script type="text/javascript">
     $("#PhotoField").fileinput({

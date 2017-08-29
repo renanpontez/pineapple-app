@@ -93,3 +93,13 @@ ul {
     border-right:0 !important;
     border-bottom: 1px solid #bdbdbd!important;
 }
+.form-group {
+    label {
+        &.error{
+            font-size: 10px;
+            color: red;
+            left: auto;
+            right: 0;
+        }
+    }
+}

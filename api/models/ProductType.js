@@ -22,5 +22,17 @@ module.exports = {
             collection: 'Product',
             via: 'ProductType'
         }
+    },
+
+    beforeDestroy: function(criteria, cb) {
+        ProductType.find(criteria).populate('products').exec(function (err, types) {
+            if(err) return cb(err);
+
+            types.forEach(function(recordToDestroy) {
+                Product.destroy({id: _.pluck(recordToDestroy.products, 'id')}).exec(function(err) {
+                    return cb();
+                })
+            });
+        });
     }
 };
