@@ -103,3 +103,9 @@ ul {
         }
     }
 }
+
+.navbar {
+    &.no-shadow{
+        box-shadow: none !important;
+    }
+}

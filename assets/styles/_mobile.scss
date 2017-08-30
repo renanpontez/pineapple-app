@@ -1,0 +1,41 @@
+$phone: 320px;
+$tablet:768px;
+$pcsmall:992px;
+$desktop:1200px;
+
+
+
+@media screen and (max-width: $pcsmall) {
+    .navbar {
+        width: 100% !important;
+        background-color: rgba(35, 35, 35, 0.59) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-right: 0px !important;
+    }
+    .navbar-nav  a{
+        width: 100%;
+        font-size: 17px;
+    }
+
+    header .main-text h1 {
+        padding-top:16px;
+    }
+
+    .menu-filter {
+        display: none !important;
+    }
+
+    body {
+        position: relative;
+
+        .admin-area-btn{
+            top: auto !important;
+            bottom: 10px !important;
+            color: $blue;
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+}

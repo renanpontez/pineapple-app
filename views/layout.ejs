@@ -4,7 +4,7 @@
     <title><%=typeof title == 'undefined' ? 'PineApple' : title%></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 
     <!--
@@ -44,17 +44,27 @@
   </head>
 
   <body>
+      <a href="../users/login" class="admin-area-btn">
+          <i class="fa fa-lock"></i>
+      </a>
      <header>
-         <a href="../users/login" class="admin-area-btn">
-             <i class="fa fa-lock"></i>
-         </a>
+         <nav class="navbar navbar-expand-lg  navbar-dark no-shadow" style="width:100%">
 
-         <div class="container">
-             <div class="logo">
-                 <img src="/img/logowhite.png" alt="">
-             </div>
-             <nav>
-                 <ul>
+             <!-- Navbar brand -->
+             <a class="navbar-brand" href="/admin">
+                 <div class="logo">
+                     <img src="/img/logowhite.png" alt="">
+                 </div>
+             </a>
+
+             <!-- Collapse button -->
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                 aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+             <!-- Collapsible content -->
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                 <ul class="navbar-nav ml-auto">
                      <li>
                         <a href="#" class="active">Pesquisar</a>
                      </li>
@@ -62,37 +72,41 @@
                         <a href="#">Contato</a>
                      </li>
                  </ul>
-             </nav>
-             <div class="clearfix"></div>
-         </div>
+             </div>
+
+         </nav>
+         <div class="clearfix"></div>
 
 
          <div class="main-text">
              <h1>Melhores iPhones de Fortaleza</h1>
          </div>
 
-         <div class="menu-filter">
-             <div class="row justify-content-md-center">
-                 <div class="col-md-7">
-                     <div class="row">
-                         <div class="col-md-4">
-                             <div class="card">
-                                 <div class="card-body">
-                                     <span>Parcelado até 3x</span>
+         <div class="container">
+
+             <div class="menu-filter">
+                 <div class="row justify-content-md-center">
+                     <div class="col-md-7">
+                         <div class="row">
+                             <div class="col-md-4">
+                                 <div class="card">
+                                     <div class="card-body">
+                                         <span>Parcelado até 3x</span>
+                                     </div>
                                  </div>
                              </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="card">
-                                 <div class="card-body">
-                                     <span>Segurança</span>
+                             <div class="col-md-4">
+                                 <div class="card">
+                                     <div class="card-body">
+                                         <span>Segurança</span>
+                                     </div>
                                  </div>
                              </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="card">
-                                 <div class="card-body">
-                                     <span>Qualidade</span>
+                             <div class="col-md-4">
+                                 <div class="card">
+                                     <div class="card-body">
+                                         <span>Qualidade</span>
+                                     </div>
                                  </div>
                              </div>
                          </div>

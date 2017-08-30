@@ -276,4 +276,34 @@ ul {
   left: auto;
   right: 0; }
 
+.navbar.no-shadow {
+  box-shadow: none !important; }
+
+@media screen and (max-width: 992px) {
+  .navbar {
+    width: 100% !important;
+    background-color: rgba(35, 35, 35, 0.59) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-right: 0px !important; }
+
+  .navbar-nav a {
+    width: 100%;
+    font-size: 17px; }
+
+  header .main-text h1 {
+    padding-top: 16px; }
+
+  .menu-filter {
+    display: none !important; }
+
+  body {
+    position: relative; }
+    body .admin-area-btn {
+      top: auto !important;
+      bottom: 10px !important;
+      color: #2196F3; }
+      body .admin-area-btn i {
+        font-size: 20px; } }
+
 /*# sourceMappingURL=iphonesell_compiled.css.map */
