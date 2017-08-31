@@ -31,53 +31,52 @@
                 <p>Nenhum produto foi cadastrado.</p>
             </div>
         <% } else{ %>
-            <div class="table-responsive">
-
-        <table class="table">
-            <tr>
-                <th>
-                    Produto
-                </th>
-                <th>
-                    Descrição
-                </th>
-                <th>
-                    Cor
-                </th>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    Preço
-                </th>
-                <th>
-                    Imagem
-                </th>
-                <th></th>
-            </tr>
-
-                <% _.each(products, function(product) { %>
-                    <% if (product.photo == null || product.photo.length == 0) { imgUrl = 'nophoto.png' }else{ imgUrl = product.photo } %>
+            <div class="table-responsive col-md-12">
+                <table class="table">
                     <tr>
-                        <td><%= product.ProductType.name %> | <%= product.ProductType.version %></td>
-                        <td><%= product.description %></td>
-                        <td><%= product.color %></td>
-                        <td><%= product.state %></td>
-                        <td>R$ <%= product.price %></td>
-                        <td>
-                            <a href="/uploads/<%= imgUrl %>" target="_blank">
-                                <img src="/uploads/<%= imgUrl %>" alt="" class="thumbnail-size">
-                            </a>
-                        </td>
-                        <td>
-                            <a href="/product/edit/<%= product.id %>" class="edit-product-btn">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                        </td>
+                        <th>
+                            Produto
+                        </th>
+                        <th>
+                            Descrição
+                        </th>
+                        <th>
+                            Cor
+                        </th>
+                        <th>
+                            Estado
+                        </th>
+                        <th>
+                            Preço
+                        </th>
+                        <th>
+                            Imagem
+                        </th>
+                        <th></th>
                     </tr>
-                <% }) %>
-        </table>
-    </div>
+
+                        <% _.each(products, function(product) { %>
+                            <% if (product.photo == null || product.photo.length == 0) { imgUrl = 'nophoto.png' }else{ imgUrl = product.photo } %>
+                            <tr>
+                                <td><%= product.ProductType.name %> | <%= product.ProductType.version %></td>
+                                <td><%= product.description %></td>
+                                <td><%= product.color %></td>
+                                <td><%= product.state %></td>
+                                <td>R$ <%= product.price %></td>
+                                <td>
+                                    <a href="/uploads/<%= imgUrl %>" target="_blank">
+                                        <img src="/uploads/<%= imgUrl %>" alt="" class="thumbnail-size">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/product/edit/<%= product.id %>" class="edit-product-btn">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                </table>
+            </div>
         <% } %>
     </div>
 </div>

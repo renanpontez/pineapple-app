@@ -29,11 +29,12 @@ module.exports = {
 		req.file('photo').upload({
 			dirname: require('path').resolve(sails.config.appPath, 'assets/uploads')
 		},function (err, uploadedFiles) {
-
+			sails.log(uploadedFiles.length);
 			if(uploadedFiles.length) {
 				filePath = uploadedFiles[0].fd.split('uploads\\')[1];
 				allParams.photo = filePath;
 			}
+			sails.log(allParams);
 
 			Product.create( allParams, function typeCreated (err, type) {
 				if (err) {
