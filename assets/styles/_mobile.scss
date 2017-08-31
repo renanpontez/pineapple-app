@@ -26,16 +26,5 @@ $desktop:1200px;
         display: none !important;
     }
 
-    body {
-        position: relative;
-
-        .admin-area-btn{
-            top: auto !important;
-            bottom: 10px !important;
-            color: $blue;
-            i {
-                font-size: 20px;
-            }
-        }
-    }
+    
 }

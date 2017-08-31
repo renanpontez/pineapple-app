@@ -1,3 +1,16 @@
+body {
+    position: relative;
+
+    .admin-area-btn{
+        top: auto !important;
+        bottom: 10px !important;
+        color: $blue;
+        i {
+            font-size: 20px;
+        }
+    }
+}
+
 header {
     height: 400px;
     width: 100%;
