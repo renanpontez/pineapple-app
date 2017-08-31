@@ -36,10 +36,11 @@ var jsFilesToInject = [
   'materialdesign/js/jquery-3.1.1.min.js',
   'js/jquery.validate.min.js',
 
+  'js/tether.min.js',
   'materialdesign/js/popper.min.js',
 
   'notify/*.js',
-  
+
   'materialdesign/js/*.js',
 
   'floatingbutton/*.js',
