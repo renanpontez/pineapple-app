@@ -122,7 +122,8 @@ header {
         letter-spacing: .7px;
         font-weight: 300;
         transition: all 300ms ease-out;
-        border-bottom: 0; }
+        border-bottom: 0;
+        display: block; }
         header nav ul li a:hover, header nav ul li a.active {
           transition: all 300ms ease-out;
           border-bottom: 1px solid #9E9E9E;
