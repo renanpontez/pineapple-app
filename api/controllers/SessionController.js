@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing sessions
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
- const bcrypt = require('bcrypt');
+ const bcrypt = require('bcryptjs');
 
 module.exports = {
 	new: function (req, res) {

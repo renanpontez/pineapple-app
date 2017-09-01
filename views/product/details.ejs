@@ -1,0 +1,51 @@
+<header class="small">
+    <a href="../" class="btn btn-primary btn-sm"><i class="fa fa-angle-left"></i> Todos os produtos</a>
+</header>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="product-details">
+                        <div class="product-photo">
+                            <img src="/uploads/<%= product.photo %>">
+                        </div>
+                        <div class="product-summary">
+                            <h4>R$ <%= product.price %></h4>
+                            <div class="model-infos">
+
+                                <div class="each-info">
+                                    <i class="fa fa-mobile"></i>
+                                    <span><%= product.ProductType.name %> <%= product.ProductType.version %></span>
+                                </div>
+                                <div class="each-info">
+                                    <i class="fa fa-paint-brush"></i>
+                                    <span><%= product.color %></span>
+                                </div>
+                                <div class="each-info">
+                                    <i class="fa fa-hdd-o"></i>
+                                    <span><%= product.storage %>GB</span>
+                                </div>
+                                <div class="each-info">
+                                    Descrição:
+                                    <span class="description"><%= product.description %></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    (85) 99999.8888
+                                </div>
+                                <div class="col-md-6">
+                                    contato@pineapple.com.br
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

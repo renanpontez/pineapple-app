@@ -5,6 +5,7 @@ module.exports = {
 
             res.view('homepage', {
                 products: result,
+                layout: 'layout_home'
             });
         });
     },

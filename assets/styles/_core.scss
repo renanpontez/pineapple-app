@@ -92,6 +92,12 @@ header {
             }
         }
     }
+
+    &.small {
+        height: 60px;
+        margin-bottom: 30px !important;
+        line-height: 55px;
+    }
 }
 
 nav {
@@ -182,6 +188,32 @@ nav {
     cursor: pointer !important;
 }
 
+.btn-rounded {
+    border-radius: 50%;
+    padding: 12px 14px;
+}
+
 .thumbnail-size{
     width:30px;
+}
+
+.product-details {
+    .product-photo {
+        float:left;
+        margin-right:18px;
+    }
+    .product-summary {
+        h4 {
+            margin-top:0;
+        }
+    }
+
+    .contact-info {
+        width: 100%;
+        display: inline-block;
+        margin-top: 16px;
+        background-color: #0d84ff;
+        padding: 8px 10px;
+        color: white;
+    }
 }

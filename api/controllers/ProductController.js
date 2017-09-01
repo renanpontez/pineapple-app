@@ -29,9 +29,9 @@ module.exports = {
 		req.file('photo').upload({
 			dirname: require('path').resolve(sails.config.appPath, 'assets/uploads')
 		},function (err, uploadedFiles) {
-			sails.log(uploadedFiles.length);
-			if(uploadedFiles.length) {
-				filePath = uploadedFiles[0].fd.split('uploads\\')[1];
+			if(uploadedFiles.length > 0) {
+				filePath = uploadedFiles[0].fd.split('uploads/')[1];
+				sails.log(uploadedFiles[0].fd.split('uploads/'));
 				allParams.photo = filePath;
 			}
 			sails.log(allParams);
@@ -118,6 +118,24 @@ module.exports = {
 
 				res.redirect('/admin?d=1');
 			});
+		});
+	},
+	//get
+	details: function(req, res, next) {
+		ProductType.find()
+			.exec(function foundResult(err, types){
+				if(err) return next(err);
+
+				Product.findOne(req.param('id'))
+					.populate('ProductType')
+					.exec(function ( err, product) {
+						if (err) return next(err);
+
+						res.view({
+							product: product,
+							productTypes: types
+						});
+				});
 		});
 	}
 };
