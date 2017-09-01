@@ -3,8 +3,14 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <strong>Atualizar produto</strong>
-                </div>
+                    <strong style="line-height:40px;float:left">Atualizar produto</strong>
+                    <div class="safe-zone">
+                        <form action="/product/delete" method="post" id="FormDelete">
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+                            <input type="hidden" name="id" value="<%= product.id %>">
+                            <button class="btn btn-danger margin-0 btn-sm pull-right">EXCLUIR PRODUTO</button>
+                        </form>
+                    </div>                </div>
                 <div class="card-body">
                     <form id="ProductEditForm" action="/product/update" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<%= product.id %>">
@@ -60,13 +66,9 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
+                        <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right">SALVAR</button>
                     </form>
-                    <form action="/product/delete" method="post" id="FormDelete">
-                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
-                        <input type="hidden" name="id" value="<%= product.id %>">
-                        <button class="btn btn-danger margin-0 pull-left">EXCLUIR</button>
-                    </form>
+
                 </div>
             </div>
         </div>
