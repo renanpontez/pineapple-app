@@ -221,9 +221,18 @@ nav img {
 
 .product-details .product-photo {
   float: left;
-  margin-right: 18px; }
+  margin-right: 18px;
+  margin-bottom: 36px; }
+  .product-details .product-photo img {
+    width: 100%; }
 .product-details .product-summary h4 {
   margin-top: 0; }
+.product-details .product-summary .each-info {
+  margin-bottom: 7px; }
+  .product-details .product-summary .each-info i {
+    margin-right: 8px; }
+    .product-details .product-summary .each-info i.fa-mobile {
+      font-size: 21px; }
 .product-details .contact-info {
   width: 100%;
   display: inline-block;
@@ -333,16 +342,7 @@ ul {
 @media screen and (max-width: 768px) {
   .product-details .product-photo {
     float: none !important;
-    margin-right: 0 !important;
-    margin-bottom: 36px !important; }
-    .product-details .product-photo img {
-      width: 100%; }
-  .product-details .product-summary .each-info {
-    margin-bottom: 7px; }
-    .product-details .product-summary .each-info i {
-      margin-right: 8px; }
-      .product-details .product-summary .each-info i.fa-mobile {
-        font-size: 21px; }
+    margin-right: 0 !important; }
   .product-details .contact-info {
     text-align: center; } }
 

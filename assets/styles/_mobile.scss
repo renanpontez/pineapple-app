@@ -36,26 +36,12 @@ $desktop:1200px;
         .product-photo {
             float:none !important;
             margin-right: 0 !important;
-            margin-bottom: 36px !important;
-
-            img {
-                width:100%;
-            }
         }
         .product-summary {
             h4 {
             }
 
-            .each-info {
-                i {
-                    margin-right:8px;
-
-                    &.fa-mobile{
-                        font-size:21px;
-                    }
-                }
-                margin-bottom:7px;
-            }
+            
         }
 
         .contact-info {
