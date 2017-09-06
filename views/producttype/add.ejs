@@ -1,3 +1,6 @@
+<%
+    var productTypesNames = ['iPhone','iPad','iPod'];
+ %>
 <section class="container" id="AddProduct">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
@@ -12,17 +15,36 @@
                         <% } %>
                     </div>
 
-                    <form class="form-type-new" action="/producttype/create" method="post">
+                    <form class="form-type-new" action="/producttype/create" method="post" enctype="multipart/form-data">
                         <div class="form-group md-form">
-                            <input class="form-control" type="text" name="name" value="" id="NameField">
-                            <label for="NameField">Nome</label>
+                            <small>Nome</small>
+                            <select class="form-control" type="text" name="name" value="" id="NameField">
+                                <% _.each(productTypesNames, function(typeName) { %>
+                                         <option value="<%= typeName %>"><%= typeName %></option>
+                                <% }) %>
+                            </select>
                         </div>
                         <div class="form-group md-form">
-                            <input class="form-control" type="text" name="version" value="" id="VersionField">
-                            <label for="VersionField">Versão</label>
+                            <small>Versão</small>
+                            <select class="form-control" type="text" name="version" value="" id="VersionField">
+                                <option value="4">4</option>
+                                <option value="4S">4S</option>
+                                <option value="5">5</option>
+                                <option value="5S">5S</option>
+                                <option value="5C">5C</option>
+                                <option value="6">6</option>
+                                <option value="6 Plus">6 PLUS</option>
+                                <option value="6S">6S</option>
+                                <option value="6S">6S PLUS</option>
+                                <option value="7">7</option>
+                                <option value="7 Plus">7 PLUS</option>
+                            </select>
                         </div>
-
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <div class="form-group md-form">
+                            <input class="form-control" type="file"  name="photo" value="" id="PhotoFieldAdd">
+                        </div>
 
                         <div class="form-group md-form">
                             <button type="submit" class="btn btn-primary btn-full-width" name="button">CADASTRAR</button>

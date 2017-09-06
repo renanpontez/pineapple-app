@@ -23,14 +23,26 @@ module.exports = {
 	},
 	//POST
 	create: function(req, res, next) {
-		ProductType.create( req.params.all(), function typeCreated (err, type) {
-			if (err) {
-				req.session.flash = {
-					err: err
-				}
-				return res.redirect('/producttype/add');
+		var filePath;
+		var allParams = req.params.all();
+
+		req.file('photo').upload({
+			dirname: require('path').resolve(sails.config.appPath, 'assets/models')
+		},function (err, uploadedFiles) {
+			if(uploadedFiles.length > 0) {
+				filePath = uploadedFiles[0].fd.split('models/')[1];
+				allParams.photo = filePath;
 			}
-			res.redirect(`/producttype`);
+
+			ProductType.create( allParams, function typeCreated (err, type) {
+				if (err) {
+					req.session.flash = {
+						err: err
+					}
+					return res.redirect('/producttype/add');
+				}
+				res.redirect(`/producttype`);
+			});
 		});
 	},
 	//GET
@@ -49,16 +61,44 @@ module.exports = {
 	//POST
 	update: function(req, res, next) {
 		var allParams = req.params.all();
-		ProductType.update(req.param('id'), allParams, function productUpdated (err) {
-			if (err) {
-				return res.json({
-					err: err,
-					status: false
-				});
-			}
+		var photoFile = req.file('photo');
 
-			res.redirect('/admin/?u=1');
-		});
+		if(photoFile._files.length > 0) {
+			req.file('photo').upload({
+				dirname: require('path').resolve(sails.config.appPath, 'assets/models')
+			},function (err, uploadedFiles) {
+
+				filePath = uploadedFiles[0].fd.split('models/')[1];
+				allParams.photo = filePath;
+
+				ProductType.update(req.param('id'), allParams, function productUpdated (err) {
+					if (err) {
+						return res.json({
+							err: err,
+							status: false
+						});
+					}
+
+					res.redirect('/admin/?u=1');
+				});
+			});
+		} else {
+			photoFile.upload({noop: true});
+			delete allParams.photo;
+
+			ProductType.update(req.param('id'), allParams, function productUpdated (err) {
+				if (err) {
+					return res.json({
+						err: err,
+						status: false
+					});
+				}
+
+				res.redirect('/admin/?u=1');
+			});
+		}
+
+
 	},
 	delete: function (req, res, next) {
 		ProductType.findOne(req.param('id'), function foundType (err, productType) {

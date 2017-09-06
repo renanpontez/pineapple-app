@@ -30,9 +30,10 @@ module.exports = {
             type: 'string',
             required: false
         },
-        photo: {
-            type: 'string',
-            required: false
+        sold: {
+            type: 'boolean',
+            required: true,
+            defaultsTo: false
         },
         ProductType: {
             model: 'ProductType'

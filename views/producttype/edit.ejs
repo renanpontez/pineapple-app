@@ -1,3 +1,6 @@
+<%
+    var productTypesNames = ['iPhone','iPad','iPod'];
+ %>
 <section class="container" id="AddProduct">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
@@ -6,11 +9,27 @@
                     <strong>Atualizar tipo de produto</strong>
                 </div>
                 <div class="card-body">
+                    <div class="errors">
+                        <% if (req.session.flash && req.session.flash.error) { %>
+                            <div class="alert alert-danger">
+                                <%=req.flash('error')%>
+                            </div>
+                        <% } %>
+                    </div>
                     <form id="ProductEditForm" action="/producttype/update" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<%= type.id %>">
                         <div class="form-group md-form">
-                            <input class="form-control" type="text" name="name"  id="NameField" value="<%= type.name %>">
-                            <label for="NameField">Nome</label>
+                            <small>Nome</small>
+                            <select class="form-control" type="text" name="name" value="" id="NameField">
+                                <% _.each(productTypesNames, function(typeName) { %>
+                                    <% if (type.name == typeName) { %>
+                                        <option selected="selected" value="<%= typeName %>"><%= typeName %></option>
+                                     <% } else { %>
+                                         <option value="<%= typeName %>"><%= typeName %></option>
+                                     <% } %>
+
+                                <% }) %>
+                            </select>
                         </div>
                         <div class="form-group md-form">
                             <input class="form-control" type="text" name="version" value="<%= type.version %>" id="VersionField">
@@ -19,6 +38,10 @@
 
 
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <div class="form-group md-form">
+                            <input class="form-control" type="file" name="photo" value="" id="PhotoFieldEdit">
+                        </div>
 
                         <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
                     </form>
