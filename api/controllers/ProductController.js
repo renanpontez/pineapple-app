@@ -17,6 +17,7 @@ module.exports = {
 
 			res.view({
 				productTypes: result,
+				productColors: GeneralService.getColors(),
 				layout: 'layout_admin.ejs'
 			});
 		});
@@ -61,6 +62,7 @@ module.exports = {
 						res.view({
 							product: product,
 							productTypes: types,
+							productColors: GeneralService.getColors(),
 							layout: 'layout_admin'
 						});
 				});

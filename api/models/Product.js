@@ -18,6 +18,10 @@ module.exports = {
             type: 'string',
             required: true
         },
+        costPrice: {
+            type: 'string',
+            required: true
+        },
         state: {
             type: 'string',
             required: false
