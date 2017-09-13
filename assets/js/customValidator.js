@@ -14,6 +14,9 @@ $(document).ready(function() {
             price: {
                 required:true
             },
+            cost_price: {
+                required:true
+            }
             ProductType: {
                 required:true
             }

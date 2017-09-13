@@ -31,6 +31,14 @@ $(document).ready(function() {
     if(getUrlParameter('c') == 1) {
         $.notify('Registro criado com sucesso!');
     }
+
+
+    $('.each-row').on('click', function() {
+        var productId = $(this).attr('product-id');
+        var url = `/product/edit/${productId}`;
+
+        window.location.href = url;
+    });
 });
 
 

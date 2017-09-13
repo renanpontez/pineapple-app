@@ -232,3 +232,13 @@ nav {
         color: white;
     }
 }
+
+.each-row {
+    cursor: pointer;
+    transition: all 300ms ease-out;
+
+    &:hover {
+        transition: all 300ms ease-out;
+        transform: scale(1.01);
+    }
+}
