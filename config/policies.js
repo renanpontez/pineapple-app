@@ -37,6 +37,9 @@ module.exports.policies = {
     },
     Admin: {
         '*': 'sessionAuth'
+    },
+    Logo: {
+        '*': 'sessionAuth'
     }
 
   /***************************************************************************

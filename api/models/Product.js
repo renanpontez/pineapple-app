@@ -41,6 +41,9 @@ module.exports = {
         },
         ProductType: {
             model: 'ProductType'
+        },
+        Logo: {
+            model: 'Logo'
         }
     },
 };

@@ -1,0 +1,53 @@
+<section class="container" id="EditLogo">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Atualizar Logo</strong>
+                </div>
+                <div class="card-body">
+                    <div class="errors">
+                        <% if (req.session.flash && req.session.flash.error) { %>
+                            <div class="alert alert-danger">
+                                <%=req.flash('error')%>
+                            </div>
+                        <% } %>
+                    </div>
+                    <form id="LogoEditForm" action="/logo/update" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%= logo.id %>">
+
+                        <div class="form-group md-form">
+                            <small>Título</small>
+                            <input class="form-control" type="text" name="title" value="<%= logo.title %>" id="TituloField">
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <div class="form-group md-form">
+                            <input class="form-control" type="file" name="photo" value="" id="PhotoFieldEdit">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
+                    </form>
+                    <form action="/logo/delete" method="post" id="FormDeleteLogo">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+                        <input type="hidden" name="id" value="<%= logo.id %>">
+                        <a class="btn btn-danger margin-0 pull-left delete-logo">EXCLUIR</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $("#PhotoField").fileinput({
+		language: "pt-BR",
+		showCaption: true,
+		showPreview: false,
+		showRemove: false,
+		showUpload: false,
+		allowedFileExtensions: ["jpg", "jpeg", "png", "gif"],
+		browseClass: 'btn btn-primary btn-sm',
+	});
+</script>

@@ -8,42 +8,24 @@
     <div class="container">
         <div class="" id="Results">
             <div class="row">
-                <% _.each(products, function(product) { %>
-                    <% if (product.photo == null) { imgUrl = 'nophoto.png' }else{ imgUrl = product.photo } %>
+                <% _.each(products, function(product) { sails.log(product); %>
                     <div class="col-md-3">
                         <div class="each-result" product-id="<%= product.id %>">
                             <!--Card-->
-                            <div class="card">
+                            <div class="">
                                 <!--Card image-->
-                                <div class="view overlay hm-white-slight bg-image" data-img="/img/models/iphone_<%= product.ProductType.version %>_<%= product.color %>.png">
                                     <a href="/details/<%= product.id %>">
-                                        <div class="mask"></div>
+                                        <img src="/models/<%= product.Logo.photo %>" alt="">
                                     </a>
-
-                                </div>
-
                                 <!--Card content-->
-                                <div class="card-body">
-                                    <div class="floating-card-button">
-                                        <a href="/details/<%= product.id %>">
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                    </div>
+                                <div class="">
                                     <!--Title-->
                                     <h4 class="card-title"><%= product.ProductType.name %> | <%= product.ProductType.version %></h4>
                                     <!--Text-->
-                                    <p class="card-text">
                                         <span class="price">
                                             R$ <%= product.price %>
                                         </span>
-                                    </p>
-
-                                    <!-- <div class="card-actions">
-                                        <a href="/product/details/<%= product.id %>" class="btn btn-primary btn-glass">Detalhes</a>
-                                    </div> -->
-
                                 </div>
-
                             </div>
                             <!--/.Card-->
                         </div>

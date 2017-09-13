@@ -140,6 +140,34 @@ nav {
     .login-logo {
         padding:15px 30px;
     }
+
+    .inputs {
+        width:80% !important;
+        margin: 0 auto;
+
+        button {
+            margin-top:25px;
+        }
+
+        .form-control{
+            padding: 10px;
+            margin-left: -10px;
+
+            &:nth-child(1) {
+                margin: 0;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                border: 1.2px solid black;
+
+            }
+            &:nth-child(2) {
+                margin: 0;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                border: 1.2px solid black;
+            }
+        }
+    }
 }
 
 .floating-button {

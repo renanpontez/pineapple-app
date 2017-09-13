@@ -15,10 +15,15 @@ module.exports = {
 				return res.redirect('/admin');
 			}
 
-			res.view({
-				productTypes: result,
-				productColors: GeneralService.getColors(),
-				layout: 'layout_admin.ejs'
+			Logo.find(function foundLogos(errLogo, logos) {
+				if(errLogo) return next(errLogo);
+
+				res.view({
+					productTypes: result,
+					productColors: GeneralService.getColors(),
+					logos: logos,
+					layout: 'layout_admin.ejs'
+				});
 			});
 		});
 	},
@@ -27,43 +32,42 @@ module.exports = {
 		var filePath;
 		var allParams = req.params.all();
 
-		req.file('photo').upload({
-			dirname: require('path').resolve(sails.config.appPath, 'assets/models')
-		},function (err, uploadedFiles) {
-			if(uploadedFiles.length > 0) {
-				filePath = uploadedFiles[0].fd.split('models/')[1];
-				allParams.photo = filePath;
+		Product.create( allParams, function typeCreated (err, type) {
+			if (err) {
+				req.session.flash = {
+					err: err
+				}
+				return res.redirect('product/add');
 			}
 
-			Product.create( allParams, function typeCreated (err, type) {
-				if (err) {
-					req.session.flash = {
-						err: err
-					}
-					return res.redirect('product/add');
-				}
-
-				res.redirect(`/admin?c=1`);
-			});
+			res.redirect(`/admin?c=1`);
 		});
 	},
 	//GET
 	edit: function(req, res, next) {
 
-		ProductType.find()
-			.exec(function foundResult(err, types){
-				if(err) return next(err);
+		Product.findOne(req.param('id'))
+			.populateAll()
+			.exec(function ( errProduct, product) {
+				if (errProduct) return next(errProduct);
 
-				Product.findOne(req.param('id'))
-					.populate('ProductType')
-					.exec(function ( err, product) {
-						if (err) return next(err);
+				sails.log(product);
 
-						res.view({
-							product: product,
-							productTypes: types,
-							productColors: GeneralService.getColors(),
-							layout: 'layout_admin'
+				ProductType.find()
+					.exec(function foundResult(err, types) {
+						if(err) return next(err);
+
+						Logo.find()
+							.exec(function foundLogo(errLogo, logos) {
+								if(errLogo) return next(errLogo);
+
+								res.view({
+									product: product,
+									productTypes: types,
+									productColors: GeneralService.getColors(),
+									logos: logos,
+									layout: 'layout_admin'
+								});
 						});
 				});
 		});

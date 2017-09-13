@@ -75,10 +75,19 @@
                             </select>
                         </div>
 
+                        <div class="form-group md-form">
+                            <select class="form-control" type="text" name="Logo">
+                                <% _.each(logos, function(logo) { %>
+                                    <% if (product.Logo.id == logo.id) { %>
+                                        <option selected="selected" value="<%= logo.id %>"><%= logo.title %> </option>
+                                     <% } else { %>
+                                         <option value="<%= logo.id %>"><%= logo.title %> </option>
+                                     <% } %>
+                                <% }) %>
+                            </select>
+                        </div>
+
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
-
-
-
 
                         <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right">SALVAR</button>
                     </form>

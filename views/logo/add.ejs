@@ -1,0 +1,35 @@
+<section class="container" id="AddLogo">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="errors">
+                        <% if (req.session.flash && req.session.flash.error) { %>
+                            <div class="alert alert-danger">
+                                <%=req.flash('err')%>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <form class="form-logo-new" action="/logo/create" method="post" enctype="multipart/form-data">
+                        <div class="form-group md-form">
+                            <small>Titulo*</small>
+                            <input type="text" name="title" class="form-control">
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <div class="form-group md-form">
+                            <input class="form-control" type="file"  name="photo" value="" id="PhotoFieldAdd">
+                        </div>
+
+                        <div class="form-group md-form">
+                            <button type="submit" class="btn btn-primary btn-full-width" name="button">CADASTRAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

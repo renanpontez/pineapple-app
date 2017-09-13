@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-title">Logos</h1>
+        </div>
+    </div>
+    <% if(logos.length == 0){ %>
+        <div class="col-md-12">
+            <p>Nenhuma logo foi cadastrada.</p>
+        </div>
+    <% } else{ %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Titulo
+                    </th>
+                    <th>
+                        Imagem
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(logos, function(logo) { %>
+                    <% if (logo.photo == null || logo.photo.length == 0) { imgUrl = 'nophoto.png' }else{ imgUrl = logo.photo } %>
+
+                    <tr>
+                        <td><%= logo.title %></td>
+                        <td>
+                            <a href="/models/<%= imgUrl %>" target="_blank">
+                                <img src="/models/<%= imgUrl %>" alt="" class="thumbnail-size">
+                            </a>
+                        </td>
+                        <td>
+                            <% if (logo.title != "nophoto"){ %>
+                                <a href="/logo/edit/<%= logo.id %>" class="edit-productype-btn">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }  %>
+    <a href="../../logo/add" class="btn btn-primary">Cadastrar Logo</a>
+</div>

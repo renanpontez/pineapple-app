@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('.form-product-new').validate({
+    $('.form-product-new, #ProductEditForm').validate({
         rules: {
             description: {
                 required: true
@@ -16,7 +16,7 @@ $(document).ready(function() {
             },
             cost_price: {
                 required:true
-            }
+            },
             ProductType: {
                 required:true
             }
@@ -30,6 +30,16 @@ $(document).ready(function() {
             },
             version: {
                 required: true,
+            }
+        }
+    });
+    $('.form-logo-new').validate({
+        rules: {
+            title: {
+                required: true
+            },
+            photo: {
+                required: true
             }
         }
     });

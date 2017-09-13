@@ -21,6 +21,15 @@ $(document).ready(function() {
         }
     });
 
+    $('.delete-logo').on('click', function() {
+        var txt;
+        var safeWord = prompt("Todos os produtos vinculados a esta logo ficarão sem imagem até você fazer upload de outra com mesmo titulo. Se você tiver certeza disso digite a palavra APAGAR:");
+        if (safeWord == "APAGAR") {
+            $("#FormDeleteLogo").submit();
+        } else {
+            $.notify('A ação foi cancelada e nada foi apagado.');
+        }
+    });
 
     if(getUrlParameter('u') == 1) {
         $.notify('Registro atualizado com sucesso!');
