@@ -20,6 +20,11 @@ module.exports = {
         ];
 
         return colors;
+    },
+    getUserLogged: function(req, res) {
+        if ( !req.isAuthenticated() ) return res.forbidden();
+
+        return res.json({user: req.user});
     }
 }
 // var result = selected_products.filter(function(v,i) {

@@ -24,7 +24,10 @@ module.exports = {
 			type: 'string',
 			required: true
 		},
-
+        accessLevel: {
+            type: 'int',
+            defaultsTo: 1
+        },
 		toJSON: function() {
 			var obj = this.toObject();
 			delete obj.password;

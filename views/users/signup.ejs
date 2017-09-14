@@ -21,21 +21,26 @@
                         </p>
 
                         <div class="md-form">
-                            <i class="fa fa-user prefix grey-text"></i>
                             <input type="text" class="form-control" name="name">
                             <label for="defaultForm-email">Nome</label>
                         </div>
 
                         <div class="md-form">
-                            <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="text" id="defaultForm-email" class="form-control" name="email">
                             <label for="defaultForm-email">E-mail</label>
                         </div>
 
                         <div class="md-form">
-                            <i class="fa fa-lock prefix grey-text"></i>
                             <input type="password" id="defaultForm-pass" class="form-control" name="encryptedPassword">
                             <label for="defaultForm-pass">Senha</label>
+                        </div>
+
+                        <div class="md-form">
+                            <small>Nível de Acesso</small>
+                            <select class="form-control" name="accessLevel">
+                                <option value="1">Usuário</option>
+                                <option value="0">Admin</option>
+                            </select>
                         </div>
 
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>

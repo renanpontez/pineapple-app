@@ -1,4 +1,4 @@
-
+<% sails.log(req.session)%>
 <div class="container">
         <% if (req.session.flash && req.session.flash.error) { %>
             <div class="alert alert-danger">
@@ -46,9 +46,11 @@
                         <th>
                             Estado
                         </th>
-                        <th>
-                            Preço de Custo
-                        </th>
+                        <% if(req.session.user.accessLevel == 0){ %>
+                            <th>
+                                Preço de Custo
+                            </th>
+                        <% } %>
                         <th>
                             Preço
                         </th>
@@ -65,7 +67,10 @@
                                 <td><%= product.description %></td>
                                 <td><%= product.color %></td>
                                 <td><%= product.state %></td>
-                                <td>R$ <%= product.cost_price %></td>
+                                <% if(req.session.user.accessLevel == 0){ %>
+                                    <td>R$ <%= product.cost_price %></td>
+                                <% } %>
+
                                 <td>R$ <%= product.price %></td>
                                 <td>
                                     <a href="/uploads/<%= imgUrl %>" target="_blank">

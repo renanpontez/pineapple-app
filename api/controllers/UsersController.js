@@ -15,7 +15,6 @@ module.exports = {
 	create: function(req,res,next) {
 		Users.create( req.params.all(), function userCreated (err, user) {
 		if(err) {
-			console.log(err);
 			req.session.flash = { err: err }
 
 			res.locals.flash = req.session.flash;
