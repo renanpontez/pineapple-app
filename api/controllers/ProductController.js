@@ -51,8 +51,6 @@ module.exports = {
 			.exec(function ( errProduct, product) {
 				if (errProduct) return next(errProduct);
 
-				sails.log(product);
-
 				ProductType.find()
 					.exec(function foundResult(err, types) {
 						if(err) return next(err);
@@ -131,7 +129,7 @@ module.exports = {
 				if(err) return next(err);
 
 				Product.findOne(req.param('id'))
-					.populate('ProductType')
+					.populateAll()
 					.exec(function ( err, product) {
 						if (err) return next(err);
 

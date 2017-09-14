@@ -158,7 +158,32 @@ nav img {
   padding: 72px 16px; }
   #MainSection .each-result {
     cursor: pointer;
-    transition: all 300ms ease-out; }
+    transition: all 300ms ease-out;
+    text-align: center;
+    margin-bottom: 36px;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 26px; }
+    #MainSection .each-result .title {
+      margin-top: 6px;
+      font-size: 22px;
+      font-weight: 500; }
+    #MainSection .each-result .photo-section {
+      height: 350px;
+      width: 100%;
+      display: block;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      background-position: center center; }
+      #MainSection .each-result .photo-section .model-photo {
+        height: 100%;
+        padding: 12px 48px; }
+    #MainSection .each-result .price {
+      font-size: 18px; }
+    #MainSection .each-result .details-btn {
+      margin-top: 16px;
+      display: block;
+      width: 60%;
+      margin: 16px auto; }
     #MainSection .each-result:hover {
       transition: all 300ms ease-out;
       transform: scale(1.01); }

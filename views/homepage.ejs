@@ -8,23 +8,24 @@
     <div class="container">
         <div class="" id="Results">
             <div class="row">
-                <% _.each(products, function(product) { sails.log(product); %>
+                <% _.each(products, function(product) {  %>
                     <div class="col-md-3">
                         <div class="each-result" product-id="<%= product.id %>">
                             <!--Card-->
                             <div class="">
                                 <!--Card image-->
-                                    <a href="/details/<%= product.id %>">
-                                        <img src="/models/<%= product.Logo.photo %>" alt="">
+                                    <a href="/details/<%= product.id %>" class="photo-section" data-img="/models/<%= product.Logo.photo %>">
+                                        <!-- <img src="/models/<%= product.Logo.photo %>" alt="" class="model-photo"> -->
                                     </a>
                                 <!--Card content-->
                                 <div class="">
                                     <!--Title-->
-                                    <h4 class="card-title"><%= product.ProductType.name %> | <%= product.ProductType.version %></h4>
+                                    <h4 class="title"><%= product.ProductType.name %> <%= product.ProductType.version %> <%= product.storage %>GB</h4>
                                     <!--Text-->
-                                        <span class="price">
-                                            R$ <%= product.price %>
-                                        </span>
+                                    <span class="price">
+                                        R$ <%= product.price %>
+                                    </span>
+                                    <a href="/details/<%= product.id %>" class="btn btn-orange details-btn">DETALHES</a>
                                 </div>
                             </div>
                             <!--/.Card-->
