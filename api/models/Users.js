@@ -24,9 +24,9 @@ module.exports = {
 			type: 'string',
 			required: true
 		},
-        accessLevel: {
-            type: 'int',
-            defaultsTo: 1
+        admin: {
+            type: 'boolean',
+            defaultsTo: false
         },
 		toJSON: function() {
 			var obj = this.toObject();

@@ -7,7 +7,7 @@
 
 module.exports = {
     index: function(req, res) {
-        Product.find().populate('ProductType').exec(function(err, result){
+        Product.find().populate('ProductType').sort('sold ASC').exec(function(err, result){
             if(err) return next(err);
 
             res.view({

@@ -1,4 +1,3 @@
-<% sails.log(req.session)%>
 <div class="container">
         <% if (req.session.flash && req.session.flash.error) { %>
             <div class="alert alert-danger">
@@ -46,7 +45,7 @@
                         <th>
                             Estado
                         </th>
-                        <% if(req.session.user.accessLevel == 0){ %>
+                        <% if(req.session.user.admin){ %>
                             <th>
                                 Preço de Custo
                             </th>
@@ -56,6 +55,9 @@
                         </th>
                         <th>
                             Imagem
+                        </th>
+                        <th>
+                            Status
                         </th>
                         <th></th>
                     </tr>
@@ -67,7 +69,7 @@
                                 <td><%= product.description %></td>
                                 <td><%= product.color %></td>
                                 <td><%= product.state %></td>
-                                <% if(req.session.user.accessLevel == 0){ %>
+                                <% if(req.session.user.admin){ %>
                                     <td>R$ <%= product.cost_price %></td>
                                 <% } %>
 
@@ -78,9 +80,24 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="/product/edit/<%= product.id %>" class="edit-product-btn">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
+                                    <% if(product.sold){ %>
+                                        <span class="badge badge-danger">
+                                            VENDIDO
+                                        </span>
+                                    <% } else { %>
+                                        <span class="badge badge-success">
+                                            À VENDA
+                                        </span>
+                                    <% } %>
+
+
+                                <td>
+                                    <% if(req.session.user.admin){ %>
+                                        <a href="/product/edit/<%= product.id %>" class="edit-product-btn">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                    <% } %>
+
                                 </td>
                             </tr>
                         <% }) %>

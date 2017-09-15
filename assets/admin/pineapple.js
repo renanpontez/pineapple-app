@@ -41,15 +41,76 @@ $(document).ready(function() {
         $.notify('Registro criado com sucesso!');
     }
 
-
-    $('.each-row').on('click', function() {
-        var productId = $(this).attr('product-id');
-        var url = `/product/edit/${productId}`;
-
-        window.location.href = url;
+    $("#SoldCheckbox").on('change', function() {
+        if ($(this).is(':checked')) {
+            $("#SoldInput").attr('value', 'true');
+            $("#SendSoldEmail").show();
+        } else {
+            $("#SoldInput").attr('value', 'false');
+            $("#SendSoldEmail").hide();
+        }
     });
-});
 
+    $("#SendSoldEmail").find('a').on('click', function() {
+        var productId = $(this).attr('product-id');
+        var txt;
+        var safeWord = prompt("Digite o e-mail do cliente que você deseja enviar o comprovante:");
+
+        if (safeWord.length > 0 && isEmail(safeWord)) {
+            showLoading();
+
+            $.ajax({
+    			url: `/product/sendReceipt/`,
+    			data: {
+                    productId: productId,
+                    email: safeWord
+                },
+    			dataType: 'json',
+    			accepts: {json: 'application/json'},
+    			success: function(data){
+                    $.notify('O comprovante foi enviado com sucesso!', "success");
+    			},
+    			error:function(e){
+    				console.log('Error: '+ e);
+    			},
+                complete: function() {
+                    hideLoading();
+                }
+    		});
+
+
+        } else {
+            $.notify('O e-mail digitado não é válido.', "warn");
+        }
+    });
+
+    if(isAdmin()) {
+        $('.each-row').on('click', function() {
+            var productId = $(this).attr('product-id');
+            var url = `/product/edit/${productId}`;
+
+            window.location.href = url;
+        });
+    }
+
+
+
+
+
+});
+var showLoading = function() {
+
+}
+var hideLoading = function() {
+
+}
+var isEmail = function(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+var isAdmin = function() {
+    return $("#IsAdmin").val() === 'true';
+}
 
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),

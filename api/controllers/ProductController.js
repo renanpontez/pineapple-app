@@ -139,5 +139,38 @@ module.exports = {
 						});
 				});
 		});
-	}
+	},
+	sendReceipt: function(req, res, next) {
+
+		Product.findOne(req.param('productId'))
+			.populateAll()
+			.exec(function ( err, product) {
+				if (err) return next(err);
+
+				sails.hooks.email.send(
+					"receiptEmail",
+						{
+			  				product: product,
+							receiverEmail: req.param('email')
+					  	},
+					  	{
+						    to: req.param('email'),
+						    subject: "Comprovante de Compra - PineApple"
+					  	},
+					  	function(err) {
+							if (err) {
+								  return res.json({
+									  err: err,
+									  status: false
+								  });
+							 }
+							 else {
+								  return res.json({
+								  	status: true
+								  });
+					  		}
+				  		}
+					  );
+				  });
+			  }
 };

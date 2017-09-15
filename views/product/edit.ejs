@@ -21,7 +21,7 @@
                         <div class="form-group md-form">
                             <div class="input-group">
                                 <span class="input-group-addon" id="CostPriceFieldAddon">R$</span>
-                                <input class="form-control" type="text" name="cost_price" value="" id="CostPriceField" value="<%= product.cost_price %>">
+                                <input class="form-control" type="text" name="cost_price" id="CostPriceField" value="<%= product.cost_price %>">
                                 <label for="CostPriceField">Preço de Custo</label>
                             </div>
                         </div>
@@ -76,6 +76,7 @@
                         </div>
 
                         <div class="form-group md-form">
+                            <small>Imagem</small>
                             <select class="form-control" type="text" name="Logo">
                                 <% _.each(logos, function(logo) { %>
                                     <% if (product.Logo.id == logo.id) { %>
@@ -87,9 +88,26 @@
                             </select>
                         </div>
 
+                        <input type="hidden" name="sold" id="SoldInput" value="<%= product.sold %>">
+
+                        <div class="md-checkbox pull-left">
+                            <% if(product.sold) {%>
+                                <input id="SoldCheckbox" type="checkbox" name="sold" value="true" checked="checked" >
+                            <% } else { %>
+                                <input id="SoldCheckbox" type="checkbox" name="sold" value="false">
+                            <% } %>
+                                <label for="SoldCheckbox">Vendido</label>
+                        </div>
+
+
+                        <div class="pull-right" id="SendSoldEmail">
+                            <a href="#" class="btn btn-warning" product-id="<%= product.id %>">Enviar Comprovante <i class="fa fa-envelope-o"></i></a>
+                        </div>
+
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
 
-                        <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right">SALVAR</button>
+                        <br><br>
+                        <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right" style="margin-top:20px;">SALVAR</button>
                     </form>
 
                 </div>

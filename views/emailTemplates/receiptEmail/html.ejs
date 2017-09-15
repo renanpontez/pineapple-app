@@ -1,0 +1,44 @@
+
+<style media="screen">
+    table {
+        border: 1px solid #e8e8e8;
+        width:300px;
+        text-align:left;
+    }
+    table th {
+        padding:10px;
+        text-align:left;
+    }
+</style>
+
+<p>Olá, <b>obrigado</b> por comprar com a PineApple. Segue abaixo as informações da sua compra realizada conosco.</p>
+
+<span>
+    <strong>
+        E-mail:
+    </strong>
+    <%= receiverEmail %>
+</span>
+
+<span>
+    <strong>
+        Produto:
+    </strong>
+    <%= product.ProductType.name %> <%= product.ProductType.version %>
+</span>
+
+<span>
+    <strong>
+        Armazenamento:
+    </strong>
+    <%= product.storage %>GB
+</span>
+<span>
+    <strong>
+        Preço:
+    </strong>
+    R$ <%= product.price %>
+</span>
+
+
+<p>Qualquer dúvida entre em contato conosco.</p>

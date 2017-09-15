@@ -29,7 +29,6 @@ module.exports = {
 
             Logo.create( allParams, function logoCreated (err, logo) {
                 if (err) {
-                    sails.log(err);
                     req.session.flash = {
                         error: err
                     }
