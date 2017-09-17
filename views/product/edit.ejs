@@ -79,7 +79,7 @@
                             <small>Imagem</small>
                             <select class="form-control" type="text" name="Logo">
                                 <% _.each(logos, function(logo) { %>
-                                    <% if (type of product.Logo != "undefined" && product.Logo.id == logo.id) { %>
+                                    <% if (product.Logo != null  && product.Logo.id == logo.id) { %>
                                         <option selected="selected" value="<%= logo.id %>"><%= logo.title %> </option>
                                      <% } else { %>
                                          <option value="<%= logo.id %>"><%= logo.title %> </option>
