@@ -288,6 +288,9 @@ nav img {
     transition: all 300ms ease-out;
     transform: scale(1.01); }
 
+#SendSoldEmail {
+  display: none; }
+
 /**
  * http://applemusic.tumblr.com/
  * https://jsfiddle.net/xq56dmrh/

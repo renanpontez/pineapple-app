@@ -56,7 +56,7 @@ $(document).ready(function() {
         var txt;
         var safeWord = prompt("Digite o e-mail do cliente que você deseja enviar o comprovante:");
 
-        if (safeWord.length > 0 && isEmail(safeWord)) {
+        if (safeWord != null && safeWord.length > 0 && isEmail(safeWord)) {
             showLoading();
 
             $.ajax({
