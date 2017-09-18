@@ -8,21 +8,14 @@
     <div class="container">
         <div class="" id="Results">
             <div class="row">
-                <% if(products.length == 0){ %>
-                    <div class="col-md-12">
-                        <p class="text-center">Não há nenhum produto à venda no momento.</p>
-                    </div>
-                <% } else{ %>
-                    <% _.each(products, function(product) {  %>
-                    <% if (product.Logo == null || product.Logo.photo.length == 0) { imgUrl = '/img/nophoto.png' }else{ imgUrl = '/models/' + product.Logo.photo } %>
-
+                <% _.each(products, function(product) {  %>
+                    <% var productLogo = (product.Logo == null) ? '/img/nophoto.png' : 'models/' + product.Logo.photo; %>
                     <div class="col-md-3">
                         <div class="each-result" product-id="<%= product.id %>">
                             <!--Card-->
                             <div class="">
                                 <!--Card image-->
-
-                                    <a href="/details/<%= product.id %>" class="photo-section" data-img="<%= imgUrl %>">
+                                    <a href="/details/<%= product.id %>" class="photo-section" data-img="<%= productLogo %>">
                                     </a>
                                 <!--Card content-->
                                 <div class="">
@@ -40,7 +33,7 @@
                     </div>
 
                 <% }) %>
-                <% } %>
+
 
 
 

@@ -147,30 +147,46 @@ module.exports = {
 			.exec(function ( err, product) {
 				if (err) return next(err);
 
-				sails.hooks.email.send(
-					"receiptEmail",
-						{
-			  				product: product,
-							receiverEmail: req.param('email')
-					  	},
-					  	{
-						    to: req.param('email'),
-						    subject: "Comprovante de Compra - PineApple"
-					  	},
-					  	function(err) {
-							if (err) {
-								  return res.json({
-									  err: err,
-									  status: false
-								  });
-							 }
-							 else {
-								  return res.json({
-								  	status: true
-								  });
-					  		}
-				  		}
-					  );
-				  });
-			  }
+
+				var nodemailer = require('nodemailer');
+				var file = req.file('pdf');
+
+
+
+				// create reusable transporter object using SMTP transport
+				var transporter = nodemailer.createTransport({
+					service: 'Gmail',
+					auth: {
+						user: 'renanpontez@gmail.com',
+						pass: 'carnaval2009'
+					}
+				});
+
+
+				// setup e-mail data with unicode symbols
+				var mailOptions = {
+					from: 'Fred Foo ✔ <renanpontez@gmail.com>', // sender address
+					to: 'renanpontez@gmail.com', // list of receivers
+					subject: 'Hello ✔', // Subject line
+					// text: 'Hello world ✔', // plaintext body
+					html: '<b>Hello world ✔</b>', // html body
+					attachments: [
+						{   // filename and content type is derived from path
+							path: sails.getBaseUrl() + '/receipts/1.pdf'
+						},
+					]
+				};
+
+				// send mail with defined transport object
+				transporter.sendMail(mailOptions, function(error, info){
+					if(error){
+						console.log(error);
+						return res.json({status: false, err: error});
+					}else{
+						return res.json({status: true});
+					}
+				});
+			}
+		);
+	}
 };
