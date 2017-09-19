@@ -10,7 +10,7 @@
                             <input type="hidden" name="id" value="<%= product.id %>">
                             <button class="btn btn-danger margin-0 btn-sm pull-right">EXCLUIR PRODUTO</button>
                         </form>
-                    </div>    
+                    </div>
                 </div>
                 <div class="card-body">
                     <form id="ProductEditForm" action="/product/update" method="post" enctype="multipart/form-data">
@@ -102,7 +102,7 @@
 
 
                         <div class="pull-right" id="SendSoldEmail">
-                            <a href="#" class="btn btn-warning" product-id="<%= product.id %>">Enviar Comprovante <i class="fa fa-envelope-o"></i></a>
+                            <a href="#" class="btn btn-warning" product-id="<%= product.id %>" csrf="<%= _csrf %>">Enviar Comprovante <i class="fa fa-envelope-o"></i></a>
                         </div>
 
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
@@ -116,15 +116,3 @@
         </div>
     </div>
 </section>
-
-<script type="text/javascript">
-    $("#PhotoField").fileinput({
-		language: "pt-BR",
-		showCaption: true,
-		showPreview: false,
-		showRemove: false,
-		showUpload: false,
-		allowedFileExtensions: ["jpg", "jpeg", "png", "gif"],
-		browseClass: 'btn btn-primary btn-sm',
-	});
-</script>

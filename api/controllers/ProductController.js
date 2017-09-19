@@ -141,50 +141,68 @@ module.exports = {
 		});
 	},
 	sendReceipt: function(req, res, next) {
+		const md5 = require('md5');
 
 		Product.findOne(req.param('productId'))
 			.populateAll()
 			.exec(function ( err, product) {
 				if (err) return next(err);
 
-
 				var nodemailer = require('nodemailer');
 				var file = req.file('pdf');
+				var dirname = sails.config.appPath + '/assets/uploads/receipts/';
 
+				req.file('pdf').upload({
 
+					saveAs: function(file, cb) {
+						var d = new Date();
+						var uuid = md5(d.getMilliseconds()) + ".pdf";
 
-				// create reusable transporter object using SMTP transport
-				var transporter = nodemailer.createTransport({
-					service: 'Gmail',
-					auth: {
-						user: 'renanpontez@gmail.com',
-						pass: 'carnaval2009'
+						cb(null, dirname + uuid);
+
 					}
-				});
+
+				},function (err, uploadedFiles) {
+					if(uploadedFiles.length > 0) {
+						var prodPath = uploadedFiles[0].fd.split('uploads/receipts/')[1];
+						var localPath = uploadedFiles[0].fd.split('uploads\\receipts\\')[1];
+						var filePath = (typeof prodPath != "undefined") ? prodPath : localPath;
+						sails.log(filePath);
+					}				// create reusable transporter object using SMTP transport
+
+					var transporter = nodemailer.createTransport({
+						service: 'Gmail',
+						auth: {
+							user: 'renanpontez@gmail.com',
+							pass: 'carnaval2009'
+						}
+					});
 
 
-				// setup e-mail data with unicode symbols
-				var mailOptions = {
-					from: 'Fred Foo ✔ <renanpontez@gmail.com>', // sender address
-					to: 'renanpontez@gmail.com', // list of receivers
-					subject: 'Hello ✔', // Subject line
-					// text: 'Hello world ✔', // plaintext body
-					html: '<b>Hello world ✔</b>', // html body
-					attachments: [
-						{   // filename and content type is derived from path
-							path: sails.getBaseUrl() + '/receipts/1.pdf'
-						},
-					]
-				};
+					// setup e-mail data with unicode symbols
+					var mailOptions = {
+						from: 'Pineapple <renanpontez@gmail.com>', // sender address
+						to: 'renanpontez@gmail.com', // list of receivers
+						subject: 'Comprovante de Compra - PineApple', // Subject line
+						// text: 'Hello world ✔', // plaintext body
+						html: '<b>Olá! Segue em anexo seu comprovante de compra. <br>Obrigado pela compra com a gente!</b>', // html body
+						attachments: [
+							{   // encoded string as an attachment
+					            filename: 'Comprovante de Compra- PineApple.pdf',
+					            path: filePath,
+					        },
+						]
+					};
 
-				// send mail with defined transport object
-				transporter.sendMail(mailOptions, function(error, info){
-					if(error){
-						console.log(error);
-						return res.json({status: false, err: error});
-					}else{
-						return res.json({status: true});
-					}
+					// send mail with defined transport object
+					transporter.sendMail(mailOptions, function(error, info){
+						if(error){
+							console.log(error);
+							return res.json({status: false, err: error});
+						}else{
+							return res.json({status: true});
+						}
+					});
 				});
 			}
 		);

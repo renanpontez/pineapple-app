@@ -39,9 +39,6 @@
 
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
 
-                        <div class="form-group md-form">
-                            <input class="form-control" type="file" name="photo" value="" id="PhotoFieldEdit">
-                        </div>
 
                         <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
                     </form>
@@ -55,15 +52,3 @@
         </div>
     </div>
 </section>
-
-<script type="text/javascript">
-    $("#PhotoField").fileinput({
-		language: "pt-BR",
-		showCaption: true,
-		showPreview: false,
-		showRemove: false,
-		showUpload: false,
-		allowedFileExtensions: ["jpg", "jpeg", "png", "gif"],
-		browseClass: 'btn btn-primary btn-sm',
-	});
-</script>

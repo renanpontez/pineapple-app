@@ -53,6 +53,7 @@ $(document).ready(function() {
 
     $("#SendSoldEmail").find('a').on('click', function() {
         var productId = $(this).attr('product-id');
+        var csrf = $(this).attr('csrf');
         var txt;
         var safeWord = prompt("Digite o e-mail do cliente que você deseja enviar o comprovante:");
 
@@ -65,9 +66,10 @@ $(document).ready(function() {
 			data.append('pdf', pdf );
             data.append('productId', productId);
             data.append('email', safeWord);
-
+            data.append('_csrf', csrf);
             $.ajax({
-    			url: `/product/sendReceipt/`,
+                method: 'post',
+    			url: `/product/sendReceipt`,
     			data: data,
     			dataType: 'json',
     			accepts: {json: 'application/json'},

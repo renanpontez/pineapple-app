@@ -21,10 +21,6 @@ module.exports = {
         products: {
             collection: 'Product',
             via: 'ProductType'
-        },
-        photo: {
-            type: 'string',
-            required: true
         }
 
     },
