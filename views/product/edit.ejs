@@ -105,6 +105,12 @@
                             <a href="#" class="btn btn-warning" product-id="<%= product.id %>" csrf="<%= _csrf %>">Enviar Comprovante <i class="fa fa-envelope-o"></i></a>
                         </div>
 
+                        <div id="EmailSentSuccess">
+                            <div class="alert alert-success" style="clear: both;">
+                                Comprovante enviado para <b id="ReceiverEmail"></b> com sucesso! <i class="fa fa-check color-green"></i>
+                            </div>
+                        </div>
+
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
 
                         <br><br>

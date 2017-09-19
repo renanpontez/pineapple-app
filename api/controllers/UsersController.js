@@ -13,7 +13,10 @@ module.exports = {
 		res.view({layout: 'layout_login.ejs'});
 	},
 	create: function(req,res,next) {
-		Users.create( req.params.all(), function userCreated (err, user) {
+		var allParams = req.params.all();
+		allParams.admin = allParams.admin == 1 ? true : false;
+		
+		Users.create( allParams, function userCreated (err, user) {
 		if(err) {
 			req.session.flash = { err: err }
 

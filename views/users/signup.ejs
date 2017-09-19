@@ -10,7 +10,7 @@
         					<% if(flash && flash.err) { %>
         						<ul class="alert alert-success">
         							<% Object.keys(flash.err).forEach(function(error) { %>
-        								<li><%= JSON.stringify(flash.err[error].message) %></li>
+        								<li><%= JSON.stringify(flash.err[error]) %></li>
         							<% }) %>
         						</ul>
         					<% } %>
@@ -38,8 +38,8 @@
                         <div class="md-form">
                             <small>Nível de Acesso</small>
                             <select class="form-control" name="admin">
-                                <option value="1">Usuário</option>
-                                <option value="0">Admin</option>
+                                <option value="0">Usuário</option>
+                                <option value="1">Admin</option>
                             </select>
                         </div>
 

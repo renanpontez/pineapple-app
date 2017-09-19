@@ -77,6 +77,10 @@ $(document).ready(function() {
 	            processData:false,
 
     			success: function(data){
+                    $("#SendSoldEmail").fadeOut(function() {
+                        $("#ReceiverEmail").html(data.receiverEmail);
+                        $("#EmailSentSuccess").fadeIn('slow');
+                    });
                     $.notify('O comprovante foi enviado com sucesso!', "success");
     			},
     			error:function(e){
@@ -119,9 +123,10 @@ var mountPdf = function() {
     return doc.output('blob');
 }
 var showLoading = function() {
-
+    $('#Loading').fadeIn();
 }
 var hideLoading = function() {
+    $('#Loading').fadeOut();
 
 }
 var isEmail = function(email) {

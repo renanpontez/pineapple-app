@@ -32,7 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': 'HomeController.index',
+  '/': 'PreHomeController.index',
   'get /details/:id': 'ProductController.details',
   /***************************************************************************
   *                                                                          *

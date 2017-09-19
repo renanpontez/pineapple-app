@@ -11,7 +11,9 @@
     }
 </style>
 
-<p>Olá, <b>obrigado</b> por comprar com a PineApple. Segue abaixo as informações da sua compra realizada conosco.</p>
+<p>Olá, <br>
+<b>Obrigado</b> por comprar com a PineApple. <br>
+Segue abaixo as informações da sua compra realizada conosco.</p>
 
 <span>
     <strong>
@@ -20,6 +22,8 @@
     <%= receiverEmail %>
 </span>
 
+<br>
+
 <span>
     <strong>
         Produto:
@@ -27,12 +31,17 @@
     <%= product.ProductType.name %> <%= product.ProductType.version %>
 </span>
 
+<br>
+
 <span>
     <strong>
         Armazenamento:
     </strong>
     <%= product.storage %>GB
 </span>
+
+<br>
+
 <span>
     <strong>
         Preço:
@@ -40,5 +49,7 @@
     R$ <%= product.price %>
 </span>
 
+<br>
+<br>
 
 <p>Qualquer dúvida entre em contato conosco.</p>
