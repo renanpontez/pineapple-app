@@ -74,6 +74,22 @@
 .orange-color:hover {
   color: #FF9800; }
 
+.pink-color,
+.pink-color:hover {
+  color: #E91E63; }
+
+.pink_rose-color,
+.pink_rose.color:hover {
+  color: #F48FB1; }
+
+.grey-color,
+.grey-color:hover {
+  color: #BDBDBD; }
+
+.gold-color,
+.gold-color:hover {
+  color: #FFB300; }
+
 body {
   position: relative; }
   body .admin-area-btn {

@@ -17,6 +17,14 @@ module.exports = {
                 id: 'grey',
                 name: 'Cinza'
             },
+            {
+                id: 'red',
+                name: 'Vermelho'
+            },
+            {
+                id: 'gold',
+                name: 'Dourado'
+            }
         ];
 
         return colors;

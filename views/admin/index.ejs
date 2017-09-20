@@ -34,10 +34,10 @@
                 <table class="table">
                     <tr>
                         <th>
-                            Produto
+                            Cód
                         </th>
                         <th>
-                            Descrição
+                            Aparelho
                         </th>
                         <th>
                             Cor
@@ -54,9 +54,6 @@
                             Preço
                         </th>
                         <th>
-                            Imagem
-                        </th>
-                        <th>
                             Status
                         </th>
                         <th></th>
@@ -65,20 +62,15 @@
                         <% _.each(products, function(product) { %>
                             <% if (product.photo == null || product.photo.length == 0) { imgUrl = 'nophoto.png' }else{ imgUrl = product.photo } %>
                             <tr class="each-row" product-id="<%= product.id %>">
+                                <td><%= product.id %></td>
                                 <td><%= product.ProductType.name %> | <%= product.ProductType.version %></td>
-                                <td><%= product.description %></td>
-                                <td><%= product.color %></td>
+                                <td><i class="fa fa-circle <%= product.color %>-color"></i></td>
                                 <td><%= product.state %></td>
                                 <% if(req.session.user.admin){ %>
                                     <td>R$ <%= product.cost_price %></td>
                                 <% } %>
 
                                 <td>R$ <%= product.price %></td>
-                                <td>
-                                    <a href="/uploads/<%= imgUrl %>" target="_blank">
-                                        <img src="/uploads/<%= imgUrl %>" alt="" class="thumbnail-size">
-                                    </a>
-                                </td>
                                 <td>
                                     <% if(product.sold){ %>
                                         <span class="badge badge-danger">
