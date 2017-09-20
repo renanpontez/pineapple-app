@@ -32,19 +32,46 @@ $desktop:1200px;
 
 }
 @media screen and (max-width: $tablet) {
+    .each-result-parent {
+        width: 50% !important;
+        padding: 50px 20px !important;
+
+        .title {
+            margin-top: 10px !important;
+            font-size: 16px !important;
+            line-height: 20px;
+            font-weight: 600 !important;
+            color: rgba(0,0,0,.7);
+        }
+        .photo-section {
+            height:100px !important;
+        }
+    }
     .product-details {
         .product-photo {
             float:none !important;
             margin-right: 0 !important;
+            padding: 24px 64px !important;
         }
         .product-summary {
-            h4 {
+            .each-info {
+                text-align: center;
+
+                .master-info, .price {
+                    font-weight: bold;
+                    font-size:24px;
+                }
+                .description {
+                    color:rgba(0,0,0,.6);
+                    font-size: 15px;
+                    font-weight: 600;
+                }
             }
 
-            
+
         }
 
-        .contact-info {
+        .btn-call {
             text-align: center;
         }
     }

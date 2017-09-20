@@ -201,3 +201,13 @@ ul {
     border-top-style: none;
     border-right-style: none;
 }
+a.btn-pineapple,
+button.btn-pineapple {
+    border-radius:5px !important;
+    background-color: #d08f1a !important;
+    color:black !important;
+    font-weight: bold;
+    font-size:18px;
+    box-shadow: none !important;
+    padding: 8px 30px;
+}

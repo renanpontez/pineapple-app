@@ -82,6 +82,24 @@ body {
     color: #4285f4; }
     body .admin-area-btn i {
       font-size: 20px; }
+  body .back-button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 23px;
+    z-index: 999; }
+    body .back-button a {
+      color: rgba(0, 0, 0, 0.5); }
+  body .title-of-page {
+    text-align: center;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'San Francisco'; }
 
 header {
   height: 400px;
@@ -161,14 +179,13 @@ nav img {
     transition: all 300ms ease-out;
     text-align: center;
     margin-bottom: 36px;
-    border-bottom: 1px solid #e3e3e3;
     padding-bottom: 26px; }
     #MainSection .each-result .title {
       margin-top: 6px;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 500; }
     #MainSection .each-result .photo-section {
-      height: 350px;
+      height: 180px;
       width: 100%;
       display: block;
       background-size: auto 100%;
@@ -260,19 +277,22 @@ nav img {
   width: 30px; }
 
 .product-details .product-photo {
-  float: left;
-  margin-right: 18px;
-  margin-bottom: 36px; }
+  float: none;
+  height: 300px;
+  padding: 36px;
+  text-align: center; }
   .product-details .product-photo img {
-    width: 100%; }
-.product-details .product-summary h4 {
-  margin-top: 0; }
-.product-details .product-summary .each-info {
-  margin-bottom: 7px; }
-  .product-details .product-summary .each-info i {
-    margin-right: 8px; }
-    .product-details .product-summary .each-info i.fa-mobile {
-      font-size: 21px; }
+    height: 100%; }
+.product-details .product-summary {
+  text-align: center; }
+  .product-details .product-summary h4 {
+    margin-top: 0; }
+  .product-details .product-summary .each-info {
+    margin-bottom: 7px; }
+    .product-details .product-summary .each-info i {
+      margin-right: 8px; }
+      .product-details .product-summary .each-info i.fa-mobile {
+        font-size: 21px; }
 .product-details .contact-info {
   width: 100%;
   display: inline-block;
@@ -502,6 +522,16 @@ ul {
   border-top-style: none;
   border-right-style: none; }
 
+a.btn-pineapple,
+button.btn-pineapple {
+  border-radius: 5px !important;
+  background-color: #d08f1a !important;
+  color: black !important;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: none !important;
+  padding: 8px 30px; }
+
 @media screen and (max-width: 992px) {
   body {
     padding-bottom: 70px; }
@@ -523,10 +553,32 @@ ul {
   .menu-filter {
     display: none !important; } }
 @media screen and (max-width: 768px) {
+  .each-result-parent {
+    width: 50% !important;
+    padding: 50px 20px !important; }
+    .each-result-parent .title {
+      margin-top: 10px !important;
+      font-size: 16px !important;
+      line-height: 20px;
+      font-weight: 600 !important;
+      color: rgba(0, 0, 0, 0.7); }
+    .each-result-parent .photo-section {
+      height: 100px !important; }
+
   .product-details .product-photo {
     float: none !important;
-    margin-right: 0 !important; }
-  .product-details .contact-info {
+    margin-right: 0 !important;
+    padding: 24px 64px !important; }
+  .product-details .product-summary .each-info {
+    text-align: center; }
+    .product-details .product-summary .each-info .master-info, .product-details .product-summary .each-info .price {
+      font-weight: bold;
+      font-size: 24px; }
+    .product-details .product-summary .each-info .description {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 15px;
+      font-weight: 600; }
+  .product-details .btn-call {
     text-align: center; } }
 
 /*# sourceMappingURL=iphonesell_compiled.css.map */
