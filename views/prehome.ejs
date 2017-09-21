@@ -1,7 +1,7 @@
 <div class="prehome-section">
     <div class="row">
         <div class="col-md-6 col-sm-12">
-            <a href="/home/?s=new">
+            <a href="<%= sails.getBaseUrl() %>/home/?s=new">
                 <div class="each-option-prehome option-new">
                     <div class="title">
                         <h2>Novo</h2>
@@ -10,14 +10,13 @@
             </a>
         </div>
         <div class="col-md-6 col-sm-12">
-            <a href="/home/?s=used">
+            <a href="<%= sails.getBaseUrl() %>/home/?s=used">
                 <div class="each-option-prehome option-old">
                     <div class="title">
                         <h2>Semi Novo</h2>
                     </div>
                 </div>
             </a>
-
         </div>
     </div>
 </div>
