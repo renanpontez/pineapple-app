@@ -51,7 +51,9 @@ $desktop:1200px;
         .product-photo {
             float:none !important;
             margin-right: 0 !important;
-            padding: 24px 64px !important;
+            padding: 0px 56px !important;
+            margin-top: 34px;
+            margin-bottom: 26px;
         }
         .product-summary {
             .each-info {
@@ -59,7 +61,7 @@ $desktop:1200px;
 
                 .master-info, .price {
                     font-weight: bold;
-                    font-size:24px;
+                    font-size:26px;
                 }
                 .description {
                     color:rgba(0,0,0,.6);
