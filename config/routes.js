@@ -31,8 +31,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-  '/': 'UnderConstructionController.index',
-  '/teste': 'PreHomeController.index',
+  '/': 'PreHomeController.index',
   'get /details/:id': 'ProductController.details',
   /***************************************************************************
   *                                                                          *
