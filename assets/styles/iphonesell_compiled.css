@@ -328,6 +328,9 @@ nav img {
   clear: both;
   display: none; }
 
+.input-error {
+  border-bottom: 1px solid red !important; }
+
 .spinner {
   animation: rotator 1.4s linear infinite; }
 

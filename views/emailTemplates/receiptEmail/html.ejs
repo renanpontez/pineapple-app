@@ -10,46 +10,86 @@
         text-align:left;
     }
 </style>
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+      <tbody><tr>
+        <td>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0" class="m_7189876045894100947m_8325095591191137417tamnho15">
+            <tbody><tr>
+              <td width="75%" rowspan="2" class="m_7189876045894100947m_8325095591191137417tamnho20">
+                <img src="https://ci6.googleusercontent.com/proxy/_KX3PraUh5E0uSFNbP24KD3OQ94NsFQralCt0Zy7kKM_H2XgFN8pZ1c58iEH0qNL-SSFvoxzagv05jTvtPpwhruCWGekUAI=s0-d-e1-ft#http://sistemapineapple.com/layout/pineapplea.png" width="126" height="27" alt="" class="CToWUd">
+              </td>
+              <td width="25%" align="center" class="m_7189876045894100947m_8325095591191137417tamnho20">Venda Nº: <%= sellingCod %></td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="m_7189876045894100947m_8325095591191137417tamnho25"><strong>Comprovante da Compra</strong></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <table width="100%" border="0" cellpadding="3" cellspacing="0" class="m_7189876045894100947m_8325095591191137417tamnho12">
+            <tbody><tr>
+              <td>Cliente: <%= receiverName %></td>
+            </tr>
+            <tr>
+              <td>Contato: <%= receiverPhone %></td>
+            </tr>
+            <tr>
+              <td>
+                  Data: <%= dateNow %>
 
-<p>Olá <%= receiverName %>! <br>
-<b>Obrigado</b> por comprar com a PineApple. <br>
-Segue abaixo as informações da sua compra realizada conosco.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Forma de Pagamento: <%= paymentMethod %></td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td>
 
-<span>
-    <strong>
-        E-mail:
-    </strong>
-    <%= receiverEmail %>
-</span>
+          <table width="100%" border="0" cellspacing="1" cellpadding="2" class="m_7189876045894100947m_8325095591191137417tamnho15" bgcolor="#BFBFBF">
+            <tbody><tr class="m_7189876045894100947m_8325095591191137417tamnho20" align="center" bgcolor="#D9D9D9">
+              <td width="65%" height="40"><strong>Produto</strong></td>
+              <td width="15%"><strong>Und.</strong></td>
+              <td width="20%"><strong>Valor</strong></td>
+            </tr>
 
-<br>
+            <tr align="center" bgcolor="#FFFFFF">
+              <td height="30"><strong><%= product.ProductType.name %> <%= product.ProductType.version %>  <%= product.storage %>GB</strong></td>
+              <td>1</td>
+              <td>R$ <%= product.price %></td>
+            </tr>
 
-<span>
-    <strong>
-        Produto:
-    </strong>
-    <%= product.ProductType.name %> <%= product.ProductType.version %>
-</span>
-
-<br>
-
-<span>
-    <strong>
-        Armazenamento:
-    </strong>
-    <%= product.storage %>GB
-</span>
-
-<br>
-
-<span>
-    <strong>
-        Preço:
-    </strong>
-    R$ <%= product.price %>
-</span>
-
-<br>
-<br>
-
-<p>Qualquer dúvida entre em contato conosco.</p>
+            <tr align="center" bgcolor="#FFFFFF">
+              <td height="40"></td>
+              <td bgcolor="#D9D9D9"><strong>TOTAL</strong></td>
+              <td>R$ <%= product.price %></td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+          <span class="HOEnZb"><font color="#888888">
+            </font></span><span class="HOEnZb"><font color="#888888">
+          </font></span><table width="100%" border="0" cellpadding="3" cellspacing="0" class="m_7189876045894100947m_8325095591191137417tamnho10">
+            <tbody><tr>
+              <td align="center"><a href="https://maps.google.com/?q=Rua+Joaquim+Siqueira,+70+%7C+60170-080+%7C+Aldeota+%7C+Fortaleza-CE&amp;entry=gmail&amp;source=g" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=https://maps.google.com/?q%3DRua%2BJoaquim%2BSiqueira,%2B70%2B%257C%2B60170-080%2B%257C%2BAldeota%2B%257C%2BFortaleza-CE%26entry%3Dgmail%26source%3Dg&amp;source=gmail&amp;ust=1506181477466000&amp;usg=AFQjCNElsFlwYrz4q45mhulg9JmAzfXabg" data-mt-detrack-inspected="true">Rua Joaquim Siqueira, 70 | 60170-080 | Aldeota | Fortaleza-CE</a> - (85) 3244.0339 - CNPJ: 19.434.691/0001-60 <a href="mailto:sac@apineapple.com.br" target="_blank" data-mt-detrack-inspected="true">sac@apineapple.com.br</a> - <a href="http://apineapple.com.br" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://apineapple.com.br&amp;source=gmail&amp;ust=1506181477466000&amp;usg=AFQjCNEOz7JJp78_PTYVJfzO3qOAhMIwBg" data-mt-detrack-inspected="true">apineapple.com.br</a></td></tr></tbody></table><span class="HOEnZb"><font color="#888888">
+        </font></span></td></tr></tbody></table>

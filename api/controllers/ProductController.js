@@ -141,19 +141,24 @@ module.exports = {
 		});
 	},
 	sendReceipt: function(req, res, next) {
-
+		var dateNow = DateService.getDayMonthYearNow();
 		Product.findOne(req.param('productId'))
 			.populateAll()
 			.exec(function ( err, product) {
 				if (err) return next(err);
 
+				var sellingCod = dateNow.split('/')[0] + dateNow.split('/')[1] + product.id;
 
 				sails.hooks.email.send(
 					"receiptEmail",
 						{
 			  				product: product,
 							receiverEmail: req.param('email'),
-							receiverName: req.param('name')
+							receiverName: req.param('name'),
+							receiverPhone: req.param('phone'),
+							dateNow: dateNow,
+							paymentMethod: req.param('payment_method'),
+							sellingCod: sellingCod
 					  	},
 					  	{
 						    to: req.param('email'),
