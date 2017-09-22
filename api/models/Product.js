@@ -22,6 +22,10 @@ module.exports = {
             type: 'string',
             required: true
         },
+        serial_number: {
+            type: 'string',
+            required: true
+        },
         state: {
             type: 'string',
             required: false
@@ -44,6 +48,7 @@ module.exports = {
         },
         Logo: {
             model: 'Logo'
-        }
+        },
+
     },
 };

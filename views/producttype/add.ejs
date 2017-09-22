@@ -1,6 +1,3 @@
-<%
-    var productTypesNames = ['iPhone','iPad','iPod'];
- %>
 <section class="container" id="AddProduct">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
@@ -18,27 +15,11 @@
                     <form class="form-type-new" action="/producttype/create" method="post" enctype="multipart/form-data">
                         <div class="form-group md-form">
                             <small>Nome</small>
-                            <select class="form-control" type="text" name="name" value="" id="NameField">
-                                <% _.each(productTypesNames, function(typeName) { %>
-                                         <option value="<%= typeName %>"><%= typeName %></option>
-                                <% }) %>
-                            </select>
+                            <input type="text" name="name" value="" class="form-control" id="NameField">
                         </div>
                         <div class="form-group md-form">
                             <small>Versão</small>
-                            <select class="form-control" type="text" name="version" value="" id="VersionField">
-                                <option value="4">4</option>
-                                <option value="4S">4S</option>
-                                <option value="5">5</option>
-                                <option value="5S">5S</option>
-                                <option value="5C">5C</option>
-                                <option value="6">6</option>
-                                <option value="6 Plus">6 PLUS</option>
-                                <option value="6S">6S</option>
-                                <option value="6S">6S PLUS</option>
-                                <option value="7">7</option>
-                                <option value="7 Plus">7 PLUS</option>
-                            </select>
+                            <input type="text" name="version" value="" class="form-control" id="VersionField" >
                         </div>
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
 

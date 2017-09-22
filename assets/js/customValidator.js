@@ -19,6 +19,9 @@ $(document).ready(function() {
             },
             ProductType: {
                 required:true
+            },
+            serial_number: {
+                required:true
             }
         }
     });
