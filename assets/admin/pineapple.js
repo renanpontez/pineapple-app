@@ -44,29 +44,29 @@ $(document).ready(function() {
     $("#SoldCheckbox").on('change', function() {
         if ($(this).is(':checked')) {
             $("#SoldInput").attr('value', 'true');
-            $("#SendSoldEmail").show();
         } else {
             $("#SoldInput").attr('value', 'false');
-            $("#SendSoldEmail").hide();
         }
     });
 
     $("#SendSoldEmail").find('a').on('click', function() {
-        var productId = $(this).attr('product-id');
-        var csrf = $(this).attr('csrf');
-        var txt;
-        var safeWord = prompt("Digite o e-mail do cliente que você deseja enviar o comprovante:");
+        $("#SendSoldEmailModal").modal();
+    });
+    $("#SendReceiptBtn").on('click', function() {
+        var productId = $("#SendSoldEmail").find('a').attr('product-id');
+        var csrf = $("#SendSoldEmail").find('a').attr('csrf');
+        var email = $("#EmailField").val();
+        var name = $("#NameField").val();
 
-        if (safeWord.length > 0 && isEmail(safeWord)) {
+        if (email.length > 0 && isEmail(email) && name.length > 0) {
             showLoading();
 
-            var pdf = mountPdf();
     		var data = new FormData();
-
-			data.append('pdf', pdf );
             data.append('productId', productId);
-            data.append('email', safeWord);
+            data.append('name', name);
+            data.append('email', email);
             data.append('_csrf', csrf);
+
             $.ajax({
                 method: 'post',
     			url: `/product/sendReceipt`,
@@ -87,13 +87,12 @@ $(document).ready(function() {
     				console.log('Error: '+ e);
     			},
                 complete: function() {
+                    $("#SendSoldEmailModal").modal('hide');
                     hideLoading();
                 }
     		});
-
-
         } else {
-            $.notify('O e-mail digitado não é válido.', "warn");
+            $.notify('O e-mail ou o nome digitado não é válido.', "warn");
         }
     });
 

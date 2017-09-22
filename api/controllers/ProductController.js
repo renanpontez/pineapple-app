@@ -152,7 +152,8 @@ module.exports = {
 					"receiptEmail",
 						{
 			  				product: product,
-							receiverEmail: req.param('email')
+							receiverEmail: req.param('email'),
+							receiverName: req.param('name')
 					  	},
 					  	{
 						    to: req.param('email'),

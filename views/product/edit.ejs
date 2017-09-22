@@ -96,14 +96,10 @@
                             <% if(product.sold) {%>
                                 <input id="SoldCheckbox" type="checkbox" name="sold" value="true" checked="checked" >
                             <% } else { %>
-                                <input id="SoldCheckbox" type="checkbox" name="sold" value="false">
+                                <div id="SendSoldEmail">
+                                    <a href="#" class="btn btn-warning" product-id="<%= product.id %>" csrf="<%= _csrf %>">Enviar Comprovante <i class="fa fa-envelope-o"></i></a>
+                                </div>
                             <% } %>
-                                <label for="SoldCheckbox">Vendido</label>
-                        </div>
-
-
-                        <div class="pull-right" id="SendSoldEmail">
-                            <a href="#" class="btn btn-warning" product-id="<%= product.id %>" csrf="<%= _csrf %>">Enviar Comprovante <i class="fa fa-envelope-o"></i></a>
                         </div>
 
                         <div id="EmailSentSuccess">
@@ -123,3 +119,28 @@
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div id="SendSoldEmailModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <b>Informe os dados do cliente</b>
+            </div>
+            <div class="modal-body">
+                <div class="form-group md-form">
+                    <label for="NameField">Nome:</label>
+                    <input id="NameField" type="text" name="" value="" class="form-control">
+                </div>
+                <div class="form-group md-form">
+                      <label for="EmailField">E-mail:</label>
+                      <input id="EmailField"  type="email" name="" value="" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="SendReceiptBtn">Enviar Comprovante <i class="fa fa-envelope-o"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
