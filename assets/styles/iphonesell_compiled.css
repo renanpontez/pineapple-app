@@ -233,13 +233,14 @@ nav img {
   #LoginArea .login-logo {
     padding: 15px 30px; }
   #LoginArea .inputs {
-    width: 80% !important;
-    margin: 0 auto; }
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 10px; }
     #LoginArea .inputs button {
       margin-top: 25px; }
     #LoginArea .inputs .form-control {
-      padding: 10px;
-      margin-left: -10px; }
+      padding-left: 3px;
+      margin-left: -3px; }
       #LoginArea .inputs .form-control:nth-child(1) {
         margin: 0;
         border-top-left-radius: 15px;
@@ -417,7 +418,7 @@ nav img {
   font-family: "San Francisco";
   font-weight: 700;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff"); }
-p, h1, h2, h3, h4 {
+p, h1, h2, h3, h4, span {
   font-family: 'San Francisco', sans-serif !important; }
 
 .img-responsive {

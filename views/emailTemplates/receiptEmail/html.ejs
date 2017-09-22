@@ -10,7 +10,7 @@
         text-align:left;
     }
 </style>
-<table width="100%" border="0" cellspacing="0" cellpadding="3">
+<table width="600px" border="0" cellspacing="0" cellpadding="3" style="margin: 0 auto;">
       <tbody><tr>
         <td>
           <table width="100%" border="0" cellpadding="0" cellspacing="0" class="m_7189876045894100947m_8325095591191137417tamnho15">
@@ -18,7 +18,7 @@
               <td width="75%" rowspan="2" class="m_7189876045894100947m_8325095591191137417tamnho20">
                 <img src="https://ci6.googleusercontent.com/proxy/_KX3PraUh5E0uSFNbP24KD3OQ94NsFQralCt0Zy7kKM_H2XgFN8pZ1c58iEH0qNL-SSFvoxzagv05jTvtPpwhruCWGekUAI=s0-d-e1-ft#http://sistemapineapple.com/layout/pineapplea.png" width="126" height="27" alt="" class="CToWUd">
               </td>
-              <td width="25%" align="center" class="m_7189876045894100947m_8325095591191137417tamnho20">Venda Nº: <%= sellingCod %></td>
+              <td width="25%" align="center" class="m_7189876045894100947m_8325095591191137417tamnho20">Nº: <%= sellingCod %></td>
             </tr>
           </tbody></table>
         </td>
@@ -29,7 +29,7 @@
         </td>
       </tr>
       <tr>
-        <td align="center" class="m_7189876045894100947m_8325095591191137417tamnho25"><strong>Comprovante da Compra</strong></td>
+        <td align="center" class="m_7189876045894100947m_8325095591191137417tamnho25"><strong style="font-size:26px;">Comprovante</strong></td>
       </tr>
       <tr>
         <td></td>
@@ -37,20 +37,47 @@
       <tr>
         <td>
           <table width="100%" border="0" cellpadding="3" cellspacing="0" class="m_7189876045894100947m_8325095591191137417tamnho12">
-            <tbody><tr>
-              <td>Cliente: <%= receiverName %></td>
+            <tbody>
+            <tr>
+              <td><b>Nome:</b> <%= receiverName %></td>
             </tr>
             <tr>
-              <td>Contato: <%= receiverPhone %></td>
+              <td><b>Email:</b> <%= receiverEmail %></td>
+            </tr>
+            <tr>
+              <td><b>Contato:</b> <%= receiverPhone %></td>
             </tr>
             <tr>
               <td>
-                  Data: <%= dateNow %>
+                  <b>Data:</b> <%= dateNow %>
 
               </td>
             </tr>
             <tr>
               <td>Forma de Pagamento: <%= paymentMethod %></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <strong>
+                        <%= product.ProductType.name %>
+                        <%= product.ProductType.version %>
+                        <%= product.storage %>GB
+                        <% if(product.state =="new") { %>
+                            (Novo)
+                        <% } else { %>
+                            (Semi)
+                        <% } %>
+                            SN: <%= product.serial_number %>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:right">
+                    <%= paymentMethod %> R$ <%= product.price %>
+                </td>
             </tr>
           </tbody></table>
         </td>
@@ -63,26 +90,21 @@
       <tr>
         <td>
 
-          <table width="100%" border="0" cellspacing="1" cellpadding="2" class="m_7189876045894100947m_8325095591191137417tamnho15" bgcolor="#BFBFBF">
-            <tbody><tr class="m_7189876045894100947m_8325095591191137417tamnho20" align="center" bgcolor="#D9D9D9">
-              <td width="65%" height="40"><strong>Produto</strong></td>
-              <td width="15%"><strong>Und.</strong></td>
-              <td width="20%"><strong>Valor</strong></td>
-            </tr>
-
-            <tr align="center" bgcolor="#FFFFFF">
-              <td height="30"><strong><%= product.ProductType.name %> <%= product.ProductType.version %>  <%= product.storage %>GB</strong></td>
-              <td>1</td>
-              <td>R$ <%= product.price %></td>
-            </tr>
-
-            <tr align="center" bgcolor="#FFFFFF">
-              <td height="40"></td>
-              <td bgcolor="#D9D9D9"><strong>TOTAL</strong></td>
-              <td>R$ <%= product.price %></td>
-            </tr>
-          </tbody></table>
         </td>
+      </tr>
+      <tr>
+          <td style="text-align:center">
+              <h2 style="text-align:center">ATENÇÃO</h2>
+              <p>
+                  Tempo de garantia é de 12 ou 06 Meses diretamente em nossa loja para aparelho
+                  Novo ou Semi Novo respectivamente, a mesma será anulada caso seja constatado
+                  que o dispositivo tenha sofrido qualquer dano de natureza elétrica, mal uso, uso
+                  de algum carregador ou acessório não homologado no padrão Apple MFI®,
+                  violação do lacre de garantia ou LCI (Selos de umidade), aberto por alguma
+                  assistência ou efetuado serviço em terceiros, válido também para acessório
+                  incluso com o produto.
+              </p>
+          </td>
       </tr>
       <tr>
         <td>

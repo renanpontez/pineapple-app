@@ -199,16 +199,17 @@ nav {
     }
 
     .inputs {
-        width:80% !important;
+        width:100% !important;
         margin: 0 auto;
+        padding:10px;
 
         button {
             margin-top:25px;
         }
 
         .form-control{
-            padding: 10px;
-            margin-left: -10px;
+            padding-left: 3px;
+            margin-left: -3px;
 
             &:nth-child(1) {
                 margin: 0;
