@@ -1,6 +1,6 @@
 <div class="container">
     <div class="back-button">
-        <a href='#' onclick="window.history.back();">
+        <a href='#' onclick="if(document.referrer) {window.open(document.referrer,'_self');} else {history.go(-1);} return false;"">
             <i class="fa fa-chevron-left"></i>
         </a>
     </div>

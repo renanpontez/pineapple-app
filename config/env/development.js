@@ -20,7 +20,6 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
-  proxyPort: 8080
 
 
 };
