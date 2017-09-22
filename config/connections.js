@@ -53,7 +53,7 @@ module.exports.connections = {
     host: 'localhost',
     port: '3306',
     user: 'root', //optional
-    password: 'root!@#', //optional
+    password: 'abacaxi', //optional
     database: 'PineappleDB' //optional
   },
 
