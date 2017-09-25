@@ -623,6 +623,8 @@ button.btn-pineapple {
   .product-details .product-summary .each-info .description {
     font-size: 16px; }
   .product-details .call-info {
-    display: none !important; } }
+    display: none !important; }
+  .product-details .btn-call {
+    display: block !important; } }
 
 /*# sourceMappingURL=iphonesell_compiled.css.map */
