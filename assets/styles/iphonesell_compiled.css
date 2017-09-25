@@ -625,6 +625,6 @@ button.btn-pineapple {
   .product-details .call-info {
     display: none !important; }
   .product-details .btn-call {
-    display: block !important; } }
+    display: inline-block !important; } }
 
 /*# sourceMappingURL=iphonesell_compiled.css.map */
