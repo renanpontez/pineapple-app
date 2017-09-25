@@ -285,14 +285,7 @@ nav {
 
 .product-details {
     .product-photo {
-        float: none;
-        height: 300px;
-        padding: 36px;
-        text-align: center;
 
-        img {
-            height:100%;
-        }
     }
     .product-summary {
         text-align: center;
@@ -347,7 +340,12 @@ nav {
         padding: 0px 56px !important;
         margin-top: 34px;
         margin-bottom: 26px;
-        height:180px;
+        height:250px;
+        text-align: center;
+
+        img {
+            height:100%;
+        }
     }
     .product-summary {
         .each-info {

@@ -293,13 +293,6 @@ nav img {
 .thumbnail-size {
   width: 30px; }
 
-.product-details .product-photo {
-  float: none;
-  height: 300px;
-  padding: 36px;
-  text-align: center; }
-  .product-details .product-photo img {
-    height: 100%; }
 .product-details .product-summary {
   text-align: center; }
   .product-details .product-summary h4 {
@@ -338,7 +331,10 @@ nav img {
   padding: 0px 56px !important;
   margin-top: 34px;
   margin-bottom: 26px;
-  height: 180px; }
+  height: 250px;
+  text-align: center; }
+  .product-details .product-photo img {
+    height: 100%; }
 .product-details .product-summary .each-info {
   text-align: center;
   margin-bottom: 0 !important; }
@@ -618,8 +614,6 @@ button.btn-pineapple {
     .each-result-parent .photo-section {
       height: 100px !important; }
 
-  .product-details .product-photo {
-    height: 380px; }
   .product-details .product-summary .each-info .master-info {
     font-size: 29px; }
   .product-details .product-summary .each-info .price {
