@@ -614,6 +614,8 @@ button.btn-pineapple {
     .each-result-parent .photo-section {
       height: 100px !important; }
 
+  .product-details .product-photo {
+    height: 380px !important; }
   .product-details .product-summary .each-info .master-info {
     font-size: 29px; }
   .product-details .product-summary .each-info .price {
