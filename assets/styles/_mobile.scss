@@ -49,45 +49,27 @@ $desktop:1200px;
     }
     .product-details {
         .product-photo {
-            float:none !important;
-            margin-right: 0 !important;
-            padding: 0px 56px !important;
-            margin-top: 34px;
-            margin-bottom: 26px;
             height:380px;
         }
         .product-summary {
             .each-info {
-                text-align: center;
-                margin-bottom: 0 !important;
 
                 .master-info {
-                    font-weight: 600;
                     font-size:29px;
-                    color: black;
                 }
                 .price {
-                    font-weight: 600;
                     font-size:27px;
-                    margin-bottom: 8px;
-                    display: block;
-                    color:black;
 
                 }
                 .description {
-                    color:rgba(0,0,0,.6);
                     font-size: 16px;
-                    font-weight: 600;
-                    margin-bottom: 15px;
-                    display: block;
                 }
             }
 
-
         }
-
-        .btn-call {
-            text-align: center;
+        .call-info {
+            display: none !important;
+            
         }
     }
 }
