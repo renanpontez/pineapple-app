@@ -73,42 +73,16 @@ module.exports = {
 	//POST
 	update: function(req, res, next) {
 		var allParams = req.params.all();
-		var photoFile = req.file('photo');
-
-		if(photoFile._files.length > 0) {
-			req.file('photo').upload({
-				dirname: require('path').resolve(sails.config.appPath, 'assets/uploads')
-			},function (err, uploadedFiles) {
-
-				filePath = uploadedFiles[0].fd.split('uploads\\')[1];
-				allParams.photo = filePath;
-
-				Product.update(req.param('id'), allParams, function productUpdated (err) {
-					if (err) {
-						return res.json({
-							err: err,
-							status: false
-						});
-					}
-
-					res.redirect('/admin/?u=1');
+		Product.update(req.param('id'), allParams, function productUpdated (err) {
+			if (err) {
+				return res.json({
+					err: err,
+					status: false
 				});
-			});
-		} else {
- 			photoFile.upload({noop: true});
-			delete allParams.photo;
+			}
 
-			Product.update(req.param('id'), allParams, function productUpdated (err) {
-				if (err) {
-					return res.json({
-						err: err,
-						status: false
-					});
-				}
-
-				res.redirect('/admin/?u=1');
-			});
-		}
+			res.redirect('/admin/?u=1');
+		});
 	},
 	delete: function (req, res, next) {
 		Product.findOne(req.param('id'), function foundProduct (err, product) {

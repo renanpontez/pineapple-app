@@ -50,7 +50,14 @@ $(document).ready(function() {
     });
 
     $("#SendSoldEmail").find('a').on('click', function() {
-        $("#SendSoldEmailModal").modal();
+        if(validateEditForm()) {
+            $("#SendSoldEmailModal").modal();
+        }
+        else {
+            $.notify('Preencha todos os campos do formulário antes de enviar comprovante!', "error");
+
+        }
+
     });
     $("#SendReceiptBtn").on('click', function() {
 
@@ -82,13 +89,15 @@ $(document).ready(function() {
                         $("#EmailSentSuccess").fadeIn('slow');
                     });
                     $.notify('O comprovante foi enviado com sucesso!', "success");
+
+                    $("#ProductEditForm").submit();
     			},
     			error:function(e){
+                    hideLoading();
     				console.log('Error: '+ e);
     			},
                 complete: function() {
                     $("#SendSoldEmailModal").modal('hide');
-                    hideLoading();
                 }
     		});
         } else {
@@ -105,11 +114,24 @@ $(document).ready(function() {
         });
     }
 
-
-
-
-
 });
+var validateEditForm = function() {
+    var form = $("#ProductEditForm");
+    var allFields = $(form).find('input');
+    var allValid = true;
+    allFields.each(function(id,el){
+        var objId = $(el).attr('id');
+
+        if(typeof objId != 'undefined') {
+            $(form).validate().element(`#${objId}`);
+            if (allValid == true ) {
+                allValid = $(el).hasClass('error') ? false : true;
+            }
+        }
+    });
+
+    return allValid;
+}
 var validateFieldsSendReceipt = function(fields) {
     $('input.input-error').removeClass('input-error');
 
@@ -122,7 +144,7 @@ var validateFieldsSendReceipt = function(fields) {
     dataToSend['phone'] = $("#PhoneField").val();
     dataToSend['payment_method'] = $("#PaymentMethodField").val();
 
-    if(dataToSend['email'].length == 0) {
+    if(dataToSend['email'].length == 0 || !isEmail(dataToSend['email'])) {
         $("#EmailField").addClass("input-error");
         status = false;
     }

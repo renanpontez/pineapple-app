@@ -231,9 +231,11 @@ nav img {
 #LoginArea {
   margin-top: 100px; }
   #LoginArea .login-logo {
-    padding: 15px 30px; }
+    padding: 15px 30px;
+    height: 140px !important;
+    width: auto !important; }
   #LoginArea .inputs {
-    width: 100% !important;
+    width: 70% !important;
     margin: 0 auto;
     padding: 10px; }
     #LoginArea .inputs button {
@@ -243,8 +245,8 @@ nav img {
       margin-left: -3px; }
       #LoginArea .inputs .form-control:nth-child(1) {
         margin: 0;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         border: 1.2px solid black; }
       #LoginArea .inputs .form-control:nth-child(2) {
         margin: 0;
@@ -604,7 +606,7 @@ button.btn-pineapple {
 @media screen and (max-width: 768px) {
   .each-result-parent {
     width: 50% !important;
-    padding: 50px 20px !important; }
+    padding: 0px 20px !important; }
     .each-result-parent .title {
       margin-top: 10px !important;
       font-size: 16px !important;

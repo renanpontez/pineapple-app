@@ -24,7 +24,7 @@
                             <label for="DescriptionField">Descrição</label>
                         </div>
                         <div class="form-group md-form">
-                            <input class="form-control" type="text" name="serial_number" value="" id="SerialField" value="<%= product.serial_number %>">
+                            <input class="form-control" type="text" name="serial_number" id="SerialField" value="<%= product.serial_number %>">
                             <label for="SerialField">Número de Série</label>
                         </div>
                         <div class="form-group md-form">
@@ -124,7 +124,7 @@
                         <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
 
                         <br><br>
-                        <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right" style="margin-top:20px;">SALVAR</button>
+                        <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right btn-save-edit" style="margin-top:20px;">SALVAR</button>
                     </form>
 
                 </div>
@@ -135,28 +135,30 @@
 
 <!-- Modal -->
 <div id="SendSoldEmailModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-md">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <b>Informe os dados do cliente</b>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="NameField">Nome:</label>
-                    <input id="NameField" type="text" name="" value="" class="form-control">
-                </div>
-                <div class="form-group">
-                      <label for="EmailField">E-mail:</label>
-                      <input id="EmailField"  type="email" name="" value="" class="form-control">
-                </div>
-                <div class="form-group">
-                      <label for="PhoneField">Telefone:</label>
-                      <input id="PhoneField"  type="text" name="phone" value="" class="form-control">
-                </div>
-                <div class="form-group">
-                      <label for="PaymentMethodField">Forma de pagamento:</label>
-                      <input id="PaymentMethodField"  type="text" name="payment_method" value="" class="form-control">
+                <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <input id="NameField" type="text" placeholder="Nome" name="" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                              <input id="EmailField"  type="email" placeholder="E-mail" name="" value="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                              <input id="PhoneField"  type="text" placeholder="Telefone" name="phone" value="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                              <input id="PaymentMethodField"  type="text" placeholder="Forma de pagamento" name="payment_method" value="" class="form-control">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
