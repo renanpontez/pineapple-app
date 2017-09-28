@@ -84,13 +84,15 @@ $(document).ready(function() {
 	            processData:false,
 
     			success: function(data){
-                    $("#SendSoldEmail").fadeOut(function() {
-                        $("#ReceiverEmail").html(data.receiverEmail);
-                        $("#EmailSentSuccess").fadeIn('slow');
-                    });
-                    $.notify('O comprovante foi enviado com sucesso!', "success");
+                    if(data.status) {
+                        $("#SendSoldEmail").fadeOut(function() {
+                            $("#ReceiverEmail").html(data.receiverEmail);
+                            $("#EmailSentSuccess").fadeIn('slow');
+                        });
+                        $.notify('O comprovante foi enviado com sucesso!', "success");
 
-                    $("#ProductEditForm").submit();
+                        $("#ProductEditForm").submit();
+                    }
     			},
     			error:function(e){
                     hideLoading();

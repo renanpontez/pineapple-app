@@ -1,16 +1,14 @@
 module.exports.email = {
-    service: 'Gmail',
     // auth: {user: 'renanpontez@gmail.com', pass: 'carnaval2009'},
     transporter: {
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true, // use SSL
+        host: 'us2.smtp.mailhostbox.com',
+        port: 587,
+        secure: false, // use SSL
         auth: {
-            user: 'renanpontez@gmail.com',
-            pass: 'carnaval2009'
+            user: 'sac@pineapple.com.br',
+            pass: '32440339pa'
         }
   },
-
-    from: 'renanpontez@gmail.com',
+    from: 'sac@pineapple.com.br',
     testMode: false,
 };
