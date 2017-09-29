@@ -50,13 +50,19 @@ $(document).ready(function() {
     });
 
     $("#SendSoldEmail").find('a').on('click', function() {
-        if(validateEditForm()) {
-            $("#SendSoldEmailModal").modal();
-        }
-        else {
-            $.notify('Preencha todos os campos do formulário antes de enviar comprovante!', "error");
+        //REACTIVATE WHEN SMTP OUT IS FREE
+        // if(validateEditForm()) {
+        //     $("#SendSoldEmailModal").modal();
+        // }
+        // else {
+        //     $.notify('Preencha todos os campos do formulário antes de enviar comprovante!', "error");
+        //
+        // }
 
-        }
+
+        //WORKAROUND WHILE SMTP OUTBOUND IS NOT OK ON DIGITAL OCEAN
+        var productId = $(this).attr('product-id');
+        window.open(`/product/${productId}/receipt`);
 
     });
     $("#SendReceiptBtn").on('click', function() {

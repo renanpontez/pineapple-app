@@ -114,14 +114,40 @@ module.exports = {
 				});
 		});
 	},
+	receipt: function(req, res, next) {
+
+		let productId = req.param('id');
+
+		return res.view({productId: productId, layout: 'layout_admin'});
+	},
+	viewReceipt: function(req, res, next) {
+		let dateNow = DateService.getDayMonthYearNow();
+		let productId = req.param('product_id');
+		let sellingCod = dateNow.split('/')[0] + dateNow.split('/')[1] + productId;
+
+		Product.findOne(productId)
+			.populateAll()
+			.exec(function ( err, product) {
+				if (err) return next(err);
+
+				return res.view('emailTemplates/receiptEmail/preview.ejs', {
+					product: product,
+					receiverEmail: req.param('email'),
+					receiverName: req.param('name'),
+					receiverPhone: req.param('phone'),
+					dateNow: dateNow,
+					paymentMethod: req.param('payment_method'),
+					sellingCod: sellingCod,
+					layout: 'layout_null.ejs'
+				});
+			});
+	},
 	sendReceipt: function(req, res, next) {
-		var dateNow = DateService.getDayMonthYearNow();
 		Product.findOne(req.param('productId'))
 			.populateAll()
 			.exec(function ( err, product) {
 				if (err) return next(err);
 
-				var sellingCod = dateNow.split('/')[0] + dateNow.split('/')[1] + product.id;
 
 				sails.hooks.email.send(
 					"receiptEmail",

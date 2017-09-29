@@ -46,4 +46,21 @@ $(document).ready(function() {
             }
         }
     });
+    $('#ReceiptFormView').validate({
+        rules: {
+            name: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+            phone: {
+                required: true
+            },
+            payment_method: {
+                required: true
+            },
+        }
+    });
+
 });

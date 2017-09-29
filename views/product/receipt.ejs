@@ -1,0 +1,31 @@
+
+<section class="container" id="AddProduct">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <b>Preencha os dados do cliente</b>
+                    <form class="" action="/product/viewReceipt" method="post" id="ReceiptFormView">
+                        <input class="form-control" type="hidden" name="product_id" value="<%= productId %>">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="name" value="" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="email" value="" placeholder="E-mail">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="phone" value="" placeholder="Telefone">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="payment_method" value="" placeholder="Forma de pagamento">
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <button class="btn btn-primary" type="submit" name="button">Visualizar comprovante</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
