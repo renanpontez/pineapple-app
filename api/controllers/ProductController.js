@@ -116,14 +116,14 @@ module.exports = {
 	},
 	receipt: function(req, res, next) {
 
-		let productId = req.param('id');
+		var productId = req.param('id');
 
 		return res.view({productId: productId, layout: 'layout_admin'});
 	},
 	viewReceipt: function(req, res, next) {
-		let dateNow = DateService.getDayMonthYearNow();
-		let productId = req.param('product_id');
-		let sellingCod = dateNow.split('/')[0] + dateNow.split('/')[1] + productId;
+		var dateNow = DateService.getDayMonthYearNow();
+		var productId = req.param('product_id');
+		var sellingCod = dateNow.split('/')[0] + dateNow.split('/')[1] + productId;
 
 		Product.findOne(productId)
 			.populateAll()
