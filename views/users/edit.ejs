@@ -1,0 +1,60 @@
+<%
+    var productStorages = ['16','32','64','128','256'];
+ %>
+
+<section class="container" id="EditUser">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong style="line-height:40px;float:left">Atualizar usuário</strong>
+                    <div class="safe-zone">
+                        <form action="/users/delete" method="post" id="FormDelete">
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+                            <input type="hidden" name="id" value="<%= user.id %>">
+                            <button class="btn btn-danger margin-0 btn-sm pull-right">EXCLUIR USUÁRIO</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="UserEditForm" action="/users/update" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<%= user.id %>">
+                        <div class="md-form">
+                            <input type="text" class="form-control" name="name"  value="<%= user.name %>">
+                            <label for="defaultForm-email">Nome</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="text" id="defaultForm-email" class="form-control" name="email" value="<%= user.email %>">
+                            <label for="defaultForm-email">E-mail</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="password" id="defaultForm-pass" class="form-control" name="encryptedPassword">
+                            <label for="defaultForm-pass">Senha</label>
+                        </div>
+
+                        <div class="form-group md-form">
+                            <small>Nível de Acesso</small>
+                            <select class="form-control" name="admin">
+                                <% if (user.admin) { %>
+                                    <option value="0">Usuário</option>
+                                    <option value="1" selected="selected">Admin</option>
+                                <% } else { %>
+                                    <option value="0" selected="selected">Usuário</option>
+                                    <option value="1">Admin</option>
+                                <% } %>
+                            </select>
+                        </div>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
+
+                        <br><br>
+                        <button type="submit" class="btn btn-primary btn-full-width margin-0 pull-right btn-save-edit" style="margin-top:20px;">SALVAR</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

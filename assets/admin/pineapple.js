@@ -121,6 +121,14 @@ $(document).ready(function() {
             window.location.href = url;
         });
     }
+    if(isAdmin()) {
+        $('.each-row-user').on('click', function() {
+            var userId = $(this).attr('user-id');
+            var url = `/users/edit/${userId}`;
+
+            window.location.href = url;
+        });
+    }
 
 });
 var validateEditForm = function() {

@@ -62,5 +62,15 @@ $(document).ready(function() {
             },
         }
     });
+    $('#UserEditForm').validate({
+        rules: {
+            name: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+        }
+    });
 
 });

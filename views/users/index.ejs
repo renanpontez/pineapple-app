@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-title">Usuários</h1>
+        </div>
+    </div>
+    <% if(users.length == 0){ %>
+        <div class="col-md-12">
+            <p>Nenhum usuário foi cadastrado.</p>
+        </div>
+    <% } else{ %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        E-mail
+                    </th>
+                    <th>
+                        Nível de Acesso
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(users, function(user) { %>
+                    <tr class="each-row-user" user-id="<%= user.id %>">
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td>
+                            <% if(user.admin){ %>
+                                <span class="badge badge-success">
+                                    ADMIN
+                                </span>
+                            <% } else { %>
+                                <span class="badge badge-info">
+                                    USUÁRIO COMUM
+                                </span>
+                            <% } %>
+                        </td>
+                        <td>
+                            <% if(users.length > 1){ %>
+                                <a href="/users/edit/<%= user.id %>" class="edit-user-btn">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }  %>
+
+</div>
