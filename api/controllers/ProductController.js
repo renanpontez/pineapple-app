@@ -143,6 +143,10 @@ module.exports = {
 			});
 	},
 	sendReceipt: function(req, res, next) {
+		var dateNow = DateService.getDayMonthYearNow();
+		var productId = req.param('productId');
+		var sellingCod = dateNow.split('/')[0] + dateNow.split('/')[1] + productId;
+
 		Product.findOne(req.param('productId'))
 			.populateAll()
 			.exec(function ( err, product) {

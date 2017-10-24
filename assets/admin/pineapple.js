@@ -96,7 +96,7 @@ $(document).ready(function() {
                             $("#EmailSentSuccess").fadeIn('slow');
                         });
                         $.notify('O comprovante foi enviado com sucesso!', "success");
-                        $("#SoldInput").value('true');
+                        $("#SoldInput").val('true');
                         $("#ProductEditForm").submit();
                     }
     			},
