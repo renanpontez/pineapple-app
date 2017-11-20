@@ -4,6 +4,9 @@
             <h1 class="page-title">Logos</h1>
         </div>
     </div>
+    <% if(req.session.user.admin){ %>
+        <a href="../../logo/add" class="btn btn-primary">Cadastrar Logo</a>
+    <% }  %>
     <% if(logos.length == 0){ %>
         <div class="col-md-12">
             <p>Nenhuma logo foi cadastrada.</p>
@@ -45,7 +48,5 @@
             </tbody>
         </table>
     <% }  %>
-    <% if(req.session.user.admin){ %>
-        <a href="../../logo/add" class="btn btn-primary">Cadastrar Logo</a>
-    <% }  %>
+
 </div>
