@@ -17,6 +17,7 @@ module.exports = {
     create: function(req, res, next) {
         var filePath;
 		var allParams = req.params.all();
+        var fs = require('fs');
 
 		req.file('photo').upload({
 			dirname: require('path').resolve(sails.config.appPath, 'assets/models')
@@ -25,6 +26,9 @@ module.exports = {
                 var prodPath = uploadedFiles[0].fd.split('models/')[1];
                 var localPath = uploadedFiles[0].fd.split('models\\')[1];
 				allParams.photo = (typeof prodPath != "undefined") ? prodPath : localPath;
+
+                var _dest = sails.config.appPath + '/assets/models/'+ uploadedFiles[0].filename
+                fs.createReadStream(uploadedFiles[0].fd).pipe(fs.createWriteStream(_dest));
 			}
 
             Logo.create( allParams, function logoCreated (err, logo) {
@@ -53,6 +57,7 @@ module.exports = {
     update: function(req, res, next) {
         var allParams = req.params.all();
         var photoFile = req.file('photo');
+        var fs = require('fs');
 
         if(photoFile._files.length > 0) {
             req.file('photo').upload({
@@ -62,6 +67,9 @@ module.exports = {
                 var prodPath = uploadedFiles[0].fd.split('models/')[1];
                 var localPath = uploadedFiles[0].fd.split('models\\')[1];
 				allParams.photo = (typeof prodPath != "undefined") ? prodPath : localPath;
+
+                var _dest = sails.config.appPath + '/assets/models/'+ uploadedFiles[0].filename
+                fs.createReadStream(uploadedFiles[0].fd).pipe(fs.createWriteStream(_dest));
 
                 Logo.update(req.param('id'), allParams, function productUpdated (err) {
                     if (err) {
