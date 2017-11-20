@@ -27,9 +27,7 @@ module.exports = {
                 var localPath = uploadedFiles[0].fd.split('models\\')[1];
 				allParams.photo = (typeof prodPath != "undefined") ? prodPath : localPath;
 
-                sails.log(uploadedFiles[0]);
-
-                var _dest= sails.config.appPath + '/.tmp/public/uploads/' + allParams.photo;
+                var _dest = sails.config.appPath + '/.tmp/public/models/' + allParams.photo;
                 var _src = sails.config.appPath + '/assets/models/'+ allParams.photo
                 fs.createReadStream(_src).pipe(fs.createWriteStream(_dest));
 			}
@@ -71,8 +69,9 @@ module.exports = {
                 var localPath = uploadedFiles[0].fd.split('models\\')[1];
 				allParams.photo = (typeof prodPath != "undefined") ? prodPath : localPath;
 
-                var _dest = sails.config.appPath + '/assets/models/'+ allParams.photo
-                fs.createReadStream(uploadedFiles[0].fd).pipe(fs.createWriteStream(_dest));
+                var _dest = sails.config.appPath + '/.tmp/public/models/' + allParams.photo;
+                var _src = sails.config.appPath + '/assets/models/'+ allParams.photo
+                fs.createReadStream(_src).pipe(fs.createWriteStream(_dest));
 
                 Logo.update(req.param('id'), allParams, function productUpdated (err) {
                     if (err) {
