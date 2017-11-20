@@ -28,12 +28,10 @@ module.exports = {
         Logo.find(criteria).populate('products').exec(function (err, logos) {
             if(err) return cb(err);
 
-            Logo.find({title: 'nophoto'}).exec(function (err, logoNoPhoto){
-                logos.forEach(function(recordToDestroy) {
-                    Product.update({id: _.pluck(recordToDestroy.products, 'id')}, {Logo: logoNoPhoto[0].id}).exec(function(err, updated) {
-                        return cb();
-                    })
-                });
+            logos.forEach(function(recordToDestroy) {
+                Product.update({id: _.pluck(recordToDestroy.products, 'id')}, {Logo: ''}).exec(function(err, updated) {
+                    return cb();
+                })
             });
         });
     }

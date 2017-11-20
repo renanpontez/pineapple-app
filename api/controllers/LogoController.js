@@ -28,7 +28,7 @@ module.exports = {
 				allParams.photo = (typeof prodPath != "undefined") ? prodPath : localPath;
 
                 var _dest = sails.config.appPath + '/assets/models/'+ allParams.photo
-                fs.createReadStream(uploadedFiles[0].fd).pipe(fs.createWriteStream(_dest));
+                fs.createReadStream(sails.config.appPath + '.tmp/uploads' + allParams.photo).pipe(fs.createWriteStream(_dest));
 			}
 
             Logo.create( allParams, function logoCreated (err, logo) {

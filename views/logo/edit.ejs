@@ -30,8 +30,8 @@
                         <button type="submit" class="btn btn-primary margin-0 pull-right">SALVAR</button>
                     </form>
                     <form action="/logo/delete" method="post" id="FormDeleteLogo">
-                        <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
                         <input type="hidden" name="id" value="<%= logo.id %>">
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>">
                         <a class="btn btn-danger margin-0 pull-left delete-logo">EXCLUIR</a>
                     </form>
                 </div>
