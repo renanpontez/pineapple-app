@@ -113,14 +113,14 @@ $(document).ready(function() {
         }
     });
 
-    if(isAdmin()) {
-        $('.each-row').on('click', function() {
-            var productId = $(this).attr('product-id');
-            var url = `/product/edit/${productId}`;
+    //if(isAdmin()) {
+    $('.each-row').on('click', function() {
+        var productId = $(this).attr('product-id');
+        var url = `/product/edit/${productId}`;
 
-            window.location.href = url;
-        });
-    }
+        window.location.href = url;
+    });
+    //}
     if(isAdmin()) {
         $('.each-row-user').on('click', function() {
             var userId = $(this).attr('user-id');

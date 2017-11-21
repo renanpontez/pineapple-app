@@ -12,7 +12,10 @@
                         <form action="/product/delete" method="post" id="FormDelete">
                             <input type="hidden" name="_csrf" value="<%= _csrf %>"></input>
                             <input type="hidden" name="id" value="<%= product.id %>">
-                            <button class="btn btn-danger margin-0 btn-sm pull-right">EXCLUIR PRODUTO</button>
+                            <% if(req.session.user.admin){ %>
+                                <button class="btn btn-danger margin-0 btn-sm pull-right">EXCLUIR PRODUTO</button>
+                            <% } %>
+
                         </form>
                     </div>
                 </div>
